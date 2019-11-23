@@ -40,7 +40,7 @@ if ($stmt->num_rows > 0) {
 		$_SESSION['loggedin'] = TRUE;
 		$_SESSION['name'] = $_POST['username'];
 		$_SESSION['id'] = $id;
-		echo 'Welcome ' . $_SESSION['name'] . '!';
+		header('Location: ./documents/homepage.php');
 	} else {
 		echo 'Incorrect password!';
 	}
