@@ -1,44 +1,36 @@
-<?php
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lab Mechatronica</title>
+  <!-- voor icoontjes op login scherm tag#0001 -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+  <link href="../style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
 
-session_start();
+<div class="login">
+  <h1>Login page</h1>
 
-if(!empty($_GET))
-{
-  $_SESSION["username"] = $_GET["username"];
-  $_SESSION["password"] = $_GET["password"];
+  <form action="../authenticate.php" method="post">
 
-  header("Location: homepage.php");
-} else {
-  $dbc = mysqli_connect("localhost", "root", "", "lab_mechatronica")
-    or die (mysqli_connect_error($dbc));
-    echo (mysqli_connect_error($dbc));
-?>
-
-
-  <!DOCTYPE html>
-  <html>
-  <head>
-    <title>Lab Mechatronica</title>
-  </head>
-  <body>
-
-    <h1>Login page</h1>
-
-    <form action="<?php echo $_SERVER["PHP_SELF"];?>" method="get">
+      <label for="username">
+        <!-- tag#0001 -->
+        <i class="fas fa-user"></i>
+      </label>
+      <input type="text" placeholder="Enter Username" name="username" id="username" required>
       
-      <div class="container">
-        <label for="uname"><b>Username</b></label>
-        <input type="text" placeholder="Enter Username" name="username" required>
-        <label for="psw"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="password" required>
-        <button type="submit">Login</button>
-      </div>
-    </form>
+      <label for="password">
+        <!-- tag#0001 -->
+        <i class="fas fa-lock"></i>
+      </label>
+      <input type="password" placeholder="Enter Password" name="password" id="password" required>
+      
+      <input type="submit" value="Login">
 
-  </body>
-  </html>
+  </form>
+</div>
 
-<?php
-}
-?>
+</body>
+</html>
+
 
