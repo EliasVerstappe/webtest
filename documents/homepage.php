@@ -1,3 +1,19 @@
+<?php
+
+    session_start();
+    $_SESSION["logonsession"] = FALSE;
+
+    $dbc = mysqli_connect("localhost", "root", "", "lab_mechatronica")
+        or die (mysqli_connect_error($dbc));
+        echo (mysqli_connect_error($dbc));
+
+    if(empty($_SESSION["username"]) && empty($_SESSION["password"]))
+    {
+    echo "U bent niet ingelogd!";
+    echo "Klik <a href=\"index.php\"> Meld u opnieuw aan.</a>";
+    } else {
+        ?>
+
 <!DOCTYPE html>
   <html>
   <head>
@@ -22,3 +38,7 @@
 
   </body>
   </html>
+
+<?php
+    }
+?>
