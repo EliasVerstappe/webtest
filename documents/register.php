@@ -22,7 +22,7 @@
                 $hashed_pwd = password_hash($password, PASSWORD_DEFAULT);
                 $dbc->query("INSERT INTO users (name, email, password) VALUES ('$name', '$email', '$hashed_pwd')");
                 $msg = "You have been registered succesfully!";
-                // Navigate to the page that says 'You have succesfully been registered'
+                header('Location: ./successful_registreatoin.php');
             }   
         }
     }
