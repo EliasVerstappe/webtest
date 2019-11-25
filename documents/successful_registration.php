@@ -15,7 +15,7 @@
 		<br><br>
 	</div>
 	
-	<input type="button" value="Sign in" class="sgninbtn">
+	<a href="./index.php">Sign in</a>
 
 </div>
 

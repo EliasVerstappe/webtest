@@ -19,7 +19,7 @@ body {
     font-size: 24px;
     margin-left: 20px;
 }
-.registered input[type="button"] {
+.registered a {
     width: 20%;
     padding: 15px;
     background-color: #3274d6;
@@ -31,8 +31,10 @@ body {
     margin-bottom: 10px;
     margin-right: 10px;
     float: right;
+    text-align: center;
+    text-decoration: none;
 }
-.registered input[type="button"]:hover {
+.registered a:hover {
     background-color: #2868c7;
     transition: background-color 0.2s;
 }
