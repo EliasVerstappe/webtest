@@ -1,4 +1,6 @@
 <?php
+    session_start();
+
     $msg = "";
     
     if (isset($_POST['submit'])) {
@@ -6,25 +8,19 @@
         if ( mysqli_connect_errno() ) {
             die ('Failed to connect to MySQL: ' . mysqli_connect_error());
         }
-
-
-        if(!isset($_POST['name']) or !isset($_POST['email']) or !isset($_POST['password']) or !isset($_POST['cpassword']) ) {
-            $msg = "Fill in all the fields";
+        
+        if ($_POST['password'] != $_POST['cpassword']) {
+            $msg = "Passwords don't match!";
         } else {
-            $name = ($_POST['name']);
-            $email = ($_POST['email']);
-            $password = ($_POST['password']);
-            $cpassword = ($_POST['cpassword']);
-            
-            if ($password != $cpassword) {
-                $msg = "Passwords don't match!";
-            } else {
-                $hashed_pwd = password_hash($password, PASSWORD_DEFAULT);
-                $dbc->query("INSERT INTO users (name, email, password) VALUES ('$name', '$email', '$hashed_pwd')");
-                $msg = "You have been registered succesfully!";
-                header('Location: ./successful_registreatoin.php');
-            }   
-        }
+            $hashed_pwd = password_hash($_POST['password'], PASSWORD_DEFAULT);
+
+            $stmt = $dbc->prepare("INSERT INTO users (name, email, password)");
+            $stmt->bind_param($_POST['name'], $_POST['email'], $hashed_pwd);
+            $stmt->execute();
+            $stmt->close();
+            // $dbc->query("INSERT INTO users (name, email, password) VALUES ('$name', '$email', '$hashed_pwd')");
+            header('Location: ./successful_registration.php');
+        }   
     }
 ?>
 
