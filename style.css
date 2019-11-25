@@ -58,11 +58,6 @@ body {
     background-color: #2868c7;
     transition: background-color 0.2s;
 }
-/* Waarom werkt dit niet? */
-/* .login #resister {
-    text-align: right;
-    font-size: 14px;
-} */
 
 .navtop {
 	background-color: #2f3947;
