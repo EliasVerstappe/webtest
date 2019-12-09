@@ -10,6 +10,8 @@
 
 <!-- Scripts -->
     <script type="text/javascript">
+    function direction(wind){};
+    
         $(document).ready(function direction(wind){
 
             var a = new XMLHttpRequest();
@@ -18,88 +20,75 @@
 
 
             switch(wind) {
-                case northwest:
+                case 'northwest':
                     a.open("GET", "../pincontrol/data3_on.php");           
                 
                     break;
                 
-                case north:
+                case 'north':
                     a.open("GET", "../pincontrol/data0_on.php"); 
                 
                     break;
                 
-                case northeast:
-                    <?php
-                        system("gpio -g write 19 1");
-                        system("gpio -g write 26 1");
-                    ?>
+                case 'northeast':
+                    a.open("GET", "../pincontrol/data1_on.php"); 
+                    a.open("GET", "../pincontrol/data0_on.php");
                 
                     break;
                 
-                case west:
-                    <?php
-                        system("gpio -g write 13 1");
-                        system("gpio -g write 19 1");
-                        system("gpio -g write 26 1");
-                    ?>
+                case 'west':
+                    a.open("GET", "../pincontrol/data2_on.php"); 
+                    a.open("GET", "../pincontrol/data1_on.php"); 
+                    a.open("GET", "../pincontrol/data0_on.php");
 
                     break;
                 
-                case east:
-                    <?php
-                        system("gpio -g write 19 1");
-                        system("gpio -g write 26 1");
-                    ?>
+                case 'east':
+                    a.open("GET", "../pincontrol/data1_on.php"); 
+                    a.open("GET", "../pincontrol/data0_on.php");
 
                     break;
 
-                case southwest:
-                    <?php
-                        system("gpio -g write 13 1");
-                        system("gpio -g write 19 1");
-                    ?>
+                case 'southwest':
+                    a.open("GET", "../pincontrol/data2_on.php"); 
+                    a.open("GET", "../pincontrol/data1_on.php"); 
+                    
+                    break;
+
+                case 'south':
+                    a.open("GET", "../pincontrol/data2_on.php"); 
+                    a.open("GET", "../pincontrol/data0_on.php"); 
 
                     break;
 
-                case south:
-                    <?php
-                        system("gpio -g write 13 1");
-                        system("gpio -g write 26 1");
-                    ?>
+                case 'southeast':
+                    a.open("GET", "../pincontrol/data2_on.php"); 
 
                     break;
 
-                case southeast:
-                    <?php
-                        system("gpio -g write 13 1");
-                    ?>
-
+                case 'ccw':
+                    a.open("GET", "../pincontrol/data3_on.php"); 
+                    a.open("GET", "../pincontrol/data1_on.php"); 
+                    
                     break;
 
-                case ccw:
-                    <?php
-                        system("gpio -g write 6 1");
-                        system("gpio -g write 19 1");
-                    ?>
-
+                case 'cw':
+                    a.open("GET", "../pincontrol/data3_on.php"); 
+                    a.open("GET", "../pincontrol/data0_on.php"); 
+                    
                     break;
 
-                case cw:
-                    <?php
-                        system("gpio -g write 6 1");
-                        system("gpio -g write 26 1");
-                    ?>
-
-                    break;
-
-                case stop:
+                case 'stop':
                 // alles op nul
+                    a.open("GET", "../pincontrol/data7to0_off.php"); 
 
                     break;
 
 
                 default:
                     // zelfde code als STOP
+                    
+                    a.open("GET", "../pincontrol/data7to0_off.php");
             }
         }
         );
