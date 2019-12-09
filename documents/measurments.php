@@ -1,3 +1,13 @@
+<?php
+    session_start();
+    if (!isset($_SESSION['loggedin'])) {
+        header('Location: index.php');
+        exit();
+    }
+
+    $conn = mysqli_connect('localhost', 'root', '', 'lab_mechatronica');
+?>
+
 <!DOCTYPE html>
 	<html>
 		<head>
@@ -7,16 +17,7 @@
 		</head>
         <script>
             function MeasureFunc(){
-                <?php
-                    system("gpio -g mode 10 out");
-                    system("gpio -g mode 9 out");
-                    system("gpio -g mode 11 out");
-                    system("gpio -g mode 5 out");
-                    system("gpio -g mode 6 out");
-                    system("gpio -g mode 13 out");
-                    system("gpio -g mode 19 out");
-                    system("gpio -g mode 26 out");
-                ?>
+                alert("button pushed!")
             }
         </script>
 		
@@ -31,9 +32,24 @@
 				</div>
 			</nav>
 
-			<div class="content">
+			<div class="measure-content">
                 <h2>Measurments Page</h2>
                 <button type="button" onclick="MeasureFunc()">Measure</button>
 			</div>
+
+            <div>
+                <?php
+                    $sql = "SELECT number, distance, date, sensor from measurments";
+                    $result = mysqli_query($conn,$sql);
+                    $row = mysqli_fetch_array($result);
+                    if (mysqli_num_rows($result) > 0) {
+                        while($row = mysqli_fetch_assoc($result)) {
+                            echo "Number : " . $row["number"]. " - distance: " . $row["distance"]. " - date " . $row["date"] . " - sensor " . $row["sensor"] . "<br>";
+                        }
+                    } else {
+                        echo "0 results";
+                    }
+                ?>                 
+            </div>
 		</body>
 	</html>
