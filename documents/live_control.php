@@ -11,13 +11,11 @@
 <!-- Scripts -->
     <script type="text/javascript">
     function direction(wind){};
-    
+
         $(document).ready(function direction(wind){
 
             var a = new XMLHttpRequest();
             a.open("GET", "../pincontrol/data7to0_on.php");
-
-
 
             switch(wind) {
                 case 'northwest':
@@ -26,6 +24,7 @@
                     break;
                 
                 case 'north':
+                    console.log('heading north');
                     a.open("GET", "../pincontrol/data0_on.php"); 
                 
                     break;
@@ -90,8 +89,19 @@
                     
                     a.open("GET", "../pincontrol/data7to0_off.php");
             }
-        }
-        );
+        
+
+            a.onreadystatechange=function(){
+                if(a.readyState==4){
+                    if(a.status==200){
+                    } else alert ("HTTP ERROR");
+                }
+            }
+            a.send();
+            
+            console.log('ready with instruction');
+
+        });
 
     </script>
 <!--  -->
@@ -100,6 +110,7 @@
 
 
     <body>
+    <script>function direction(wind){};</script>
         <nav class="navtop">
             <div>
                 <h1>Project :: Robot</h1>
