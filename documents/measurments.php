@@ -35,7 +35,21 @@
 			<div class="measure-content">
                 <h2>Measurments Page</h2>
                 <button type="button" onclick="MeasureFunc()">Measure</button>
+                <p>Press the "Measure" button!</p>
 			</div>
+
+            <div>
+                <button type="button" >Search</button>
+                <div class="dropdown">
+                <button class="dropbtn">Search on</button>
+                    <div class="dropdown-content">
+                        <a href="#">Link 1</a>
+                        <a href="#">Link 2</a>
+                        <a href="#">Link 3</a>
+                        <a href="#">Link 3</a>
+                    </div>
+                </div>
+            </div>
 
             <div>
                 <?php
@@ -48,15 +62,6 @@
                     } else {
                         echo "0 results";
                     }
-                    /*$result = mysqli_query($conn,$sql);
-                    $row = mysqli_fetch_array($result);
-                    if (mysqli_num_rows($result) > 0) {
-                        while($row = mysqli_fetch_assoc($result)) {
-                            echo "Number : " . $row["number"]. " - distance: " . $row["distance"]. " - date " . $row["date"] . " - sensor " . $row["sensor"] . "<br>";
-                        }
-                    } else {
-                        echo "0 results";
-                    }*/
                 ?>                 
             </div>
 		</body>
