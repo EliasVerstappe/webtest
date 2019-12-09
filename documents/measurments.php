@@ -40,7 +40,15 @@
             <div>
                 <?php
                     $sql = "SELECT number, distance, date, sensor from measurments";
-                    $result = mysqli_query($conn,$sql);
+                    $result = $conn->query($sql);
+                    if ($result->num_rows > 0) {
+                        while($row = $result->fetch_assoc()) {
+                            echo "Number: ". $row["number"]. " - distance: ". $row["distance"] . " - date: ". $row["date"] . " - sensor: ". $row["sensor"] . "<br>";
+                        }
+                    } else {
+                        echo "0 results";
+                    }
+                    /*$result = mysqli_query($conn,$sql);
                     $row = mysqli_fetch_array($result);
                     if (mysqli_num_rows($result) > 0) {
                         while($row = mysqli_fetch_assoc($result)) {
@@ -48,7 +56,7 @@
                         }
                     } else {
                         echo "0 results";
-                    }
+                    }*/
                 ?>                 
             </div>
 		</body>
