@@ -1,3 +1,13 @@
+<?php
+    session_start();
+    if (!isset($_SESSION['loggedin'])) {
+        header('Location: index.php');
+        exit();
+    }
+
+    $conn = mysqli_connect('localhost', 'root', '', 'lab_mechatronica');
+?>
+
 <!DOCTYPE html>
 	<html>
 		<head>
@@ -7,16 +17,7 @@
 		</head>
         <script>
             function MeasureFunc(){
-                <?php
-                    system("gpio -g mode 10 out");
-                    system("gpio -g mode 9 out");
-                    system("gpio -g mode 11 out");
-                    system("gpio -g mode 5 out");
-                    system("gpio -g mode 6 out");
-                    system("gpio -g mode 13 out");
-                    system("gpio -g mode 19 out");
-                    system("gpio -g mode 26 out");
-                ?>
+                alert("button pushed!")
             }
         </script>
 		
@@ -31,9 +32,37 @@
 				</div>
 			</nav>
 
-			<div class="content">
+			<div class="measure-content">
                 <h2>Measurments Page</h2>
                 <button type="button" onclick="MeasureFunc()">Measure</button>
+                <p>Press the "Measure" button!</p>
 			</div>
+
+            <div>
+                <button type="button" >Search</button>
+                <div class="dropdown">
+                <button class="dropbtn">Search on</button>
+                    <div class="dropdown-content">
+                        <a href="#">Link 1</a>
+                        <a href="#">Link 2</a>
+                        <a href="#">Link 3</a>
+                        <a href="#">Link 3</a>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <?php
+                    $sql = "SELECT number, distance, date, sensor from measurments";
+                    $result = $conn->query($sql);
+                    if ($result->num_rows > 0) {
+                        while($row = $result->fetch_assoc()) {
+                            echo "Number: ". $row["number"]. " - distance: ". $row["distance"] . " - date: ". $row["date"] . " - sensor: ". $row["sensor"] . "<br>";
+                        }
+                    } else {
+                        echo "0 results";
+                    }
+                ?>                 
+            </div>
 		</body>
 	</html>
