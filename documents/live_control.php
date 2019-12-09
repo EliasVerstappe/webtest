@@ -9,41 +9,22 @@
 
 
 <!-- Scripts -->
-    <script>
-        function direction(wind){
+    <script type="text/javascript">
+        $(document).ready(function direction(wind){
 
-            <?php
-                system("gpio -g mode 10 out");
-                system("gpio -g mode 9 out");
-                system("gpio -g mode 11 out");
-                system("gpio -g mode 5 out");
-                system("gpio -g mode 6 out");
-                system("gpio -g mode 13 out");
-                system("gpio -g mode 19 out");
-                system("gpio -g mode 26 out");
+            var a = new XMLHttpRequest();
+            a.open("GET", "../pincontrol/data7to0_on.php");
 
-                system("gpio -g write 10 0");
-                system("gpio -g write 9 0");
-                system("gpio -g write 11 0");
-                system("gpio -g write 5 0");
-                system("gpio -g write 6 0");
-                system("gpio -g write 13 0");
-                system("gpio -g write 19 0");
-                system("gpio -g write 26 0");
-            ?>
+
 
             switch(wind) {
                 case northwest:
-                    <?php
-                        system("gpio -g write 6 1");
-                    ?>                   
+                    a.open("GET", "../pincontrol/data3_on.php");           
                 
                     break;
                 
                 case north:
-                    <?php
-                        system("gpio -g write 26 1");
-                    ?>
+                    a.open("GET", "../pincontrol/data0_on.php"); 
                 
                     break;
                 
@@ -112,16 +93,7 @@
                     break;
 
                 case stop:
-                    <?php
-                        system("gpio -g write 10 0");
-                        system("gpio -g write 9 0");
-                        system("gpio -g write 11 0");
-                        system("gpio -g write 5 0");
-                        system("gpio -g write 6 0");
-                        system("gpio -g write 13 0");
-                        system("gpio -g write 19 0");
-                        system("gpio -g write 26 0");
-                    ?>
+                // alles op nul
 
                     break;
 
@@ -130,7 +102,7 @@
                     // zelfde code als STOP
             }
         }
-
+        );
 
     </script>
 <!--  -->
