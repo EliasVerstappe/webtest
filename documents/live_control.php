@@ -4,7 +4,9 @@
         <title>Live control</title>
         <link href="../styles/live_control.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
-    </head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
 
 <!-- Scripts -->
     <script>
@@ -34,7 +36,7 @@
                 case northwest:
                     <?php
                         system("gpio -g write 6 1");
-                    ?>
+                    ?>                   
                 
                     break;
                 
@@ -132,6 +134,10 @@
 
     </script>
 <!--  -->
+
+</head>
+
+
     <body>
         <nav class="navtop">
             <div>
