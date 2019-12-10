@@ -19,6 +19,24 @@
             function MeasureFunc(){
                 alert("button pushed!")
             }
+
+            var Search = "";
+
+            function Searchfunc(SearchOn){
+                var Search = SearchOn;
+                document.getElementById("SelectSearch").innerHTML = Search;
+                
+                if (SearchOn = 'Number'){
+                    document.getElementById("SearchInput").value = SearchOn;
+                } else if (SearchOn = 'Distance'){
+                    document.getElementById("SearchInput").value = SearchOn;
+                } else if (SearchOn = "Data"){
+                    document.getElementById("SearchInput").value = SearchOn;
+                } else if (SearchOn = "Sensor")
+                    document.getElementById("SearchInput").value = SearchOn;
+            }
+
+
         </script>
 		
 		<body class="loggedin">
@@ -39,16 +57,17 @@
 			</div>
 
             <div>
-                <button type="button" >Search</button>
                 <div class="dropdown">
-                <button class="dropbtn">Search on</button>
+                <button class="dropbtn" id="SelectSearch">Search on</button>
                     <div class="dropdown-content">
-                        <a href="#">Link 1</a>
-                        <a href="#">Link 2</a>
-                        <a href="#">Link 3</a>
-                        <a href="#">Link 3</a>
+                        <a href="#" onclick="Searchfunc('Number')">Number</a>
+                        <a href="#" onclick="Searchfunc('Distance')">Distance</a>
+                        <a href="#" onclick="Searchfunc('Date')">Date</a>
+                        <a href="#" onclick="Searchfunc('Number')">Sensor</a>
                     </div>
                 </div>
+                <input type="text" id="SearchInput" value="Select Search criteria">
+                <button type="button" >Search</button>
             </div>
 
             <div>
