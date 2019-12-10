@@ -1,8 +1,13 @@
 <?php
 //TheFreeElectron 2015, http://www.instructables.com/member/TheFreeElectron/
-//This page is requested by the JavaScript, it updates the pin's status and then print it
+//This page is requested by the JavaScript, it updates the pin's status
 //Getting and using values
 if (isset ( $_GET["wind"] )) {
+
+    <script type="text/javascript">
+        console.log('got into gpio page');
+    </script>
+
 	$wind = strip_tags ($_GET["wind"]);
 	
 	//test if value is a string
@@ -94,7 +99,6 @@ if (isset ( $_GET["wind"] )) {
                 system("gpio -g write 13 0");
                 system("gpio -g write 19 0");
                 system("gpio -g write 26 0");
-                
         }
     });
 		
