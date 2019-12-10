@@ -4,113 +4,10 @@
         <title>Live control</title>
         <link href="../styles/live_control.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-
-
-<!-- Scripts -->
-    <script type="text/javascript">
-    function direction(wind){};
-
-        $(document).ready(function direction(wind){
-
-            var a = new XMLHttpRequest();
-            a.open("GET", "../pincontrol/data7to0_on.php");
-
-            switch(wind) {
-                case 'northwest':
-                    a.open("GET", "../pincontrol/data3_on.php");           
-                
-                    break;
-                
-                case 'north':
-                    console.log('heading north');
-                    a.open("GET", "../pincontrol/data0_on.php"); 
-                
-                    break;
-                
-                case 'northeast':
-                    a.open("GET", "../pincontrol/data1_on.php"); 
-                    a.open("GET", "../pincontrol/data0_on.php");
-                
-                    break;
-                
-                case 'west':
-                    a.open("GET", "../pincontrol/data2_on.php"); 
-                    a.open("GET", "../pincontrol/data1_on.php"); 
-                    a.open("GET", "../pincontrol/data0_on.php");
-
-                    break;
-                
-                case 'east':
-                    a.open("GET", "../pincontrol/data1_on.php"); 
-                    a.open("GET", "../pincontrol/data0_on.php");
-
-                    break;
-
-                case 'southwest':
-                    a.open("GET", "../pincontrol/data2_on.php"); 
-                    a.open("GET", "../pincontrol/data1_on.php"); 
-                    
-                    break;
-
-                case 'south':
-                    a.open("GET", "../pincontrol/data2_on.php"); 
-                    a.open("GET", "../pincontrol/data0_on.php"); 
-
-                    break;
-
-                case 'southeast':
-                    a.open("GET", "../pincontrol/data2_on.php"); 
-
-                    break;
-
-                case 'ccw':
-                    a.open("GET", "../pincontrol/data3_on.php"); 
-                    a.open("GET", "../pincontrol/data1_on.php"); 
-                    
-                    break;
-
-                case 'cw':
-                    a.open("GET", "../pincontrol/data3_on.php"); 
-                    a.open("GET", "../pincontrol/data0_on.php"); 
-                    
-                    break;
-
-                case 'stop':
-                // alles op nul
-                    a.open("GET", "../pincontrol/data7to0_off.php"); 
-
-                    break;
-
-
-                default:
-                    // zelfde code als STOP
-                    
-                    a.open("GET", "../pincontrol/data7to0_off.php");
-            }
-        
-
-            a.onreadystatechange=function(){
-                if(a.readyState==4){
-                    if(a.status==200){
-                    } else alert ("HTTP ERROR");
-                }
-            }
-            a.send();
-            
-            console.log('ready with instruction');
-
-        });
-
-    </script>
-<!--  -->
-
-</head>
+    </head>
 
 
     <body>
-    <script>function direction(wind){};</script>
         <nav class="navtop">
             <div>
                 <h1>Project :: Robot</h1>
@@ -126,28 +23,30 @@
 
             <table class="buttontable">
             <tr>
-                <td><button onmousedown="direction('northwest')" onmouseup="direction('stop')"><i class="fas fa-expand-arrows-alt"></i></button></td>
-                <td><button onmousedown="direction('north')" onmouseup="direction('stop')"><i class="fas fa-arrow-up"></i></button></td>
-                <td><button onmousedown="direction('northeast')" onmouseup="direction('stop')"><i class="fas fa-expand-arrows-alt"></i></button></td>
+                <td><button onmousedown="change_pin('northwest');" onmouseup="change_pin('stop');"><i class="fas fa-expand-arrows-alt"></i></button></td>
+                <td><button onmousedown="change_pin('north');" onmouseup="change_pin('stop');"><i class="fas fa-arrow-up"></i></button></td>
+                <td><button onmousedown="change_pin('northeast');" onmouseup="change_pin('stop');"><i class="fas fa-expand-arrows-alt"></i></button></td>
             </tr>
             <tr>
-                <td><button onmousedown="direction('west')" onmouseup="direction('stop')"><i class="fas fa-arrow-left"></i></button></td>
+                <td><button onmousedown="change_pin('west');" onmouseup="change_pin('stop');"><i class="fas fa-arrow-left"></i></button></td>
                 <td></td>
-                <td><button onmousedown="direction('east')" onmouseup="direction('stop')"><i class="fas fa-arrow-right"></i></button></td>
+                <td><button onmousedown="change_pin('east');" onmouseup="change_pin('stop');"><i class="fas fa-arrow-right"></i></button></td>
             </tr>
             <tr>
-                <td><button onmousedown="direction('southwest')" onmouseup="direction('stop')"><i class="fas fa-expand-arrows-alt"></i></button></td>
-                <td><button onmousedown="direction('south')" onmouseup="direction('stop')"><i class="fas fa-arrow-down"></i></button></td>
-                <td><button onmousedown="direction('southeast')" onmouseup="direction('stop')"><i class="fas fa-expand-arrows-alt"></i></button></td>
+                <td><button onmousedown="change_pin('southwest');" onmouseup="change_pin('stop');"><i class="fas fa-expand-arrows-alt"></i></button></td>
+                <td><button onmousedown="change_pin('south');" onmouseup="change_pin('stop');"><i class="fas fa-arrow-down"></i></button></td>
+                <td><button onmousedown="change_pin('southeast');" onmouseup="change_pin('stop');"><i class="fas fa-expand-arrows-alt"></i></button></td>
             </tr>
             <tr>
-                <td><button onmousedown="direction('ccw')" onmouseup="direction('stop')"><i class="fas fa-undo-alt"></i></button></td>
+                <td><button onmousedown="change_pin('ccw');" onmouseup="change_pin('stop');"><i class="fas fa-undo-alt"></i></button></td>
                 <td></td>
-                <td><button onmousedown="direction('cw')" onmouseup="direction('stop')"><i class="fas fa-redo-alt"></i></button></td>
+                <td><button onmousedown="change_pin('cw');" onmouseup="change_pin('stop');"><i class="fas fa-redo-alt"></i></button></td>
             </tr>
+            
+            <!-- javascript -->
+            <script src="script.js"></script>
+
             </table>
-
-
 
         </div>
 
