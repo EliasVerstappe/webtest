@@ -24,11 +24,11 @@ var data = 0;
 		if (request.readyState == 4 && request.status == 200) {
 			data = request.responseText;
 			if ( !(data.localeCompare("fail"))) {
-				alert ("Something went wrong!" );
+				alert ("Something went wrong! error fail" );
 				return ("fail");			
 			}
 			else {
-				alert ("Something went wrong!" );
+				alert ("Something went wrong! error kweet nie" );
 				return ("fail"); 
 			}
 		}
@@ -39,7 +39,7 @@ var data = 0;
 		}
 		//else 
 		else if (request.readyState == 4 && request.status != 200 && request.status != 500 ) { 
-			alert ("Something went wrong!");
+			alert ("Something went wrong! error 4 en 200 en 500");
 			return ("fail"); }
 	}	
 	
