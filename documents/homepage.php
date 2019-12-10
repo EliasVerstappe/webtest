@@ -37,6 +37,7 @@ if (!isset($_SESSION['loggedin'])) {
 						<li><a href="tracks.php">Trajecten</a></li>
 						<li><a href="live_control.php">Live besturen</a></li>
 						<li><a href="measurments.php">Measurments</a></li>
+						<li><a href="beta_live_control.php">Live control BETA</a></li>
 					</ul>
 				</div>
 			</div>
