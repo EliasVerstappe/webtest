@@ -26,14 +26,15 @@
                 var Search = SearchOn;
                 document.getElementById("SelectSearch").innerHTML = Search;
                 
-                if (SearchOn = 'Number'){
-                    document.getElementById("SearchInput").value = SearchOn;
-                } else if (SearchOn = 'Distance'){
-                    document.getElementById("SearchInput").value = SearchOn;
-                } else if (SearchOn = "Data"){
-                    document.getElementById("SearchInput").value = SearchOn;
-                } else if (SearchOn = "Sensor")
-                    document.getElementById("SearchInput").value = SearchOn;
+                if (Search =='Number'){
+                    document.getElementById("SearchInput").value = "Insert a number.";
+                } else if (Search == 'Distance'){
+                    document.getElementById("SearchInput").value = "Insert a Distance in mm.";
+                } else if (Search == "Date"){
+                    document.getElementById("SearchInput").value = "insert a date: day/month/year.";
+                } else if (Search == "Sensor") {
+                    document.getElementById("SearchInput").value = "insert sensorname";
+                }
             }
 
 
