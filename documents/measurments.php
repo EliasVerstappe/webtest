@@ -6,6 +6,7 @@
     }
 
     $conn = mysqli_connect('localhost', 'root', '', 'lab_mechatronica');
+
 ?>
 
 <!DOCTYPE html>
@@ -47,20 +48,8 @@
                 } else if (Search == "Sensor") {
                     alert(Search);
                 }else{
-                    <?php $sql = "SELECT number, distance, date, sensor from measurments"; ?>
+                    alert("nothing selected.");
                 }
-                <?php
-                    //$sql = "SELECT number, distance, date, sensor from measurments";
-                    $result = $conn->query($sql);
-                    if ($result->num_rows > 0) {
-                        while($row = $result->fetch_assoc()) {
-                            // needs to change.
-                            //echo "Number: ". $row["number"]. " - distance: ". $row["distance"] . " - date: ". $row["date"] . " - sensor: ". $row["sensor"] . "<br>";
-                        }
-                    } else {
-                        echo "0 results";
-                    }
-                ?>
             }
 
         </script>
@@ -96,7 +85,19 @@
                 <button onclick="requestfunc()" type="button" >Search</button>
             </div>
             <div>
-                <p>Search results will display here!</p>
+            <?php
+                    $sql = "SELECT number, distance, date, sensor from measurments";
+                    $result = $conn->query($sql);
+                    if ($result->num_rows > 0) {
+                        echo "<table id=\"resulttable\">";
+                        while($row = $result->fetch_assoc()) {
+                            echo "<tr><td>" . $row["number"] . "</td><td>" . $row["distance"] .  "</td><td>" . $row["date"] . "</td><td>" . $row["sensor"] . "</td></tr>";
+                        }
+                        echo "</table>";
+                    } else {
+                        echo "0 results";
+                    }
+                ?>
             </div>
 		</body>
 	</html>
