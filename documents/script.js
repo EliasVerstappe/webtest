@@ -4,7 +4,22 @@ var data = 0;
 //send the wind string to gpio.php for changes
 //this is the http request
 	var request = new XMLHttpRequest();
+
+	// switch (wind) {
+	// 	case 'north':
+	// 		request.open( "GET" , "data0_on.php", true);
+	// 		break;
+	
+	// 	default:
+	// 		request.open( "GET" , "data0_off.php", true);
+	// 		break;
+	// }
+
+
 	request.open( "GET" , "gpio.php?wind=" + wind, true);
+
+
+
 	request.send(null);
 	//receiving informations
 	request.onreadystatechange = function () {
