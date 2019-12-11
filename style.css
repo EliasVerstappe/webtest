@@ -131,7 +131,7 @@ body.loggedin {
 
 /* CSS for dropdown box */
 .dropbtn {
-  background-color: #4CAF50;
+  background-color: #2f3947;
   color: white;
   padding: 16px;
   font-size: 16px;
@@ -164,3 +164,26 @@ body.loggedin {
 .dropdown:hover .dropdown-content {display: block;}
 
 .dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+/* CSS for table */
+
+#resulttable {
+    font-family: -apple-system, BlinkMacSystemFont, "segoe ui", roboto, oxygen, ubuntu, cantarell, "fira sans", "droid sans", "helvetica neue", Arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#resulttable td, #resulttable th {
+    border: 1px solid #2f3947;
+    padding: 8px;
+}
+
+#resulttable tr:hover {background-color: #2f3947;}
+
+#resulttable th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #2f3947;;
+    color: white;
+  }

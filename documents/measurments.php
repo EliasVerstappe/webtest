@@ -4,11 +4,8 @@
         header('Location: index.php');
         exit();
     }
-
     $conn = mysqli_connect('localhost', 'root', '', 'lab_mechatronica');
-
 ?>
-
 <!DOCTYPE html>
 	<html>
 		<head>
@@ -84,12 +81,12 @@
                 <input type="text" id="SearchInput" value="Select Search criteria">
                 <button onclick="requestfunc()" type="button" >Search</button>
             </div>
-            <div>
+            <div id="div_resulttable">
             <?php
                     $sql = "SELECT number, distance, date, sensor from measurments";
                     $result = $conn->query($sql);
                     if ($result->num_rows > 0) {
-                        echo "<table id=\"resulttable\"> <tr><th>Numbers</th><th>Distance</th><th>Date</th><th>Sensor</th></tr>";
+                        echo "<table id=\"resulttable\"><tr><th>Numbers</th><th>Distance</th><th>Date</th><th>Sensor</th></tr>";
                         while($row = $result->fetch_assoc()) {
                             echo "<tr><td>" . $row["number"] . "</td><td>" . $row["distance"] .  "</td><td>" . $row["date"] . "</td><td>" . $row["sensor"] . "</td></tr>";
                         }
