@@ -16,14 +16,14 @@
 			<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
 		</head>
         <script>
+            var Search;
+
             function MeasureFunc(){
                 alert("button pushed!")
             }
 
-            var Search = "";
-
             function Searchfunc(SearchOn){
-                var Search = SearchOn;
+                Search = SearchOn;
                 document.getElementById("SelectSearch").innerHTML = Search;
                 
                 if (Search =='Number'){
@@ -35,8 +35,33 @@
                 } else if (Search == "Sensor") {
                     document.getElementById("SearchInput").value = "insert sensorname";
                 }
-            }
+            };
 
+            function requestfunc(){
+                if (Search =='Number'){
+                    alert(Search);
+                } else if (Search == 'Distance'){
+                    alert(Search);
+                } else if (Search == "Date"){
+                    alert(Search);
+                } else if (Search == "Sensor") {
+                    alert(Search);
+                }else{
+                    <?php $sql = "SELECT number, distance, date, sensor from measurments"; ?>
+                }
+                <?php
+                    //$sql = "SELECT number, distance, date, sensor from measurments";
+                    $result = $conn->query($sql);
+                    if ($result->num_rows > 0) {
+                        while($row = $result->fetch_assoc()) {
+                            // needs to change.
+                            //echo "Number: ". $row["number"]. " - distance: ". $row["distance"] . " - date: ". $row["date"] . " - sensor: ". $row["sensor"] . "<br>";
+                        }
+                    } else {
+                        echo "0 results";
+                    }
+                ?>
+            }
 
         </script>
 		
@@ -68,21 +93,10 @@
                     </div>
                 </div>
                 <input type="text" id="SearchInput" value="Select Search criteria">
-                <button type="button" >Search</button>
+                <button onclick="requestfunc()" type="button" >Search</button>
             </div>
-
             <div>
-                <?php
-                    $sql = "SELECT number, distance, date, sensor from measurments";
-                    $result = $conn->query($sql);
-                    if ($result->num_rows > 0) {
-                        while($row = $result->fetch_assoc()) {
-                            echo "Number: ". $row["number"]. " - distance: ". $row["distance"] . " - date: ". $row["date"] . " - sensor: ". $row["sensor"] . "<br>";
-                        }
-                    } else {
-                        echo "0 results";
-                    }
-                ?>                 
+                <p>Search results will display here!</p>
             </div>
 		</body>
 	</html>
