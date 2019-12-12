@@ -10,7 +10,7 @@
 	<html>
 		<head>
 			<title>Lab Mechatronica</title>
-			<link href="../style.css" rel="stylesheet" type="text/css">
+			<link href="../styles/measurments.css" rel="stylesheet" type="text/css">
 			<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
 		</head>
         <script>
@@ -61,39 +61,41 @@
 					<a href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a>
 				</div>
             </nav> 
-            <div class="measure-content">
-                <h2>Measurments Page</h2>
-                <button type="button" onclick="MeasureFunc()" id="MeasureButton">Measure</button>
-                <p>Press the "Measure" button to measure the current distance.</p>
-			</div>
 
-            <div class="search-content">
-                <div class="dropdown">
-                <button class="dropbtn" id="SearchOn">Search on</button>
-                    <div class="dropdown-content">
-                        <a href="#" onclick="Searchfunc('Number')">Number</a>
-                        <a href="#" onclick="Searchfunc('Distance')">Distance</a>
-                        <a href="#" onclick="Searchfunc('Date')">Date</a>
-                        <a href="#" onclick="Searchfunc('Sensor')">Sensor</a>
-                    </div>
+            <div class="content">
+                <h2>Measurments Page</h2>
+                <div class="measure-content">
+                    <button type="button" onclick="MeasureFunc()" id="MeasureButton">Measure</button>
+                    <p>Press the "Measure" button to measure the current distance.</p>
                 </div>
-                <input type="text" id="SearchInput" value="Select Search criteria">
-                <button onclick="requestfunc()" type="button" id="SearchButton">Search</button>
-            </div>
-            <div class="result-content">
-            <?php
-                    $sql = "SELECT number, distance, date, sensor from measurments";
-                    $result = $conn->query($sql);
-                    if ($result->num_rows > 0) {
-                        echo "<table id=\"resulttable\"><tr><th>Numbers</th><th>Distance</th><th>Date</th><th>Sensor</th></tr>";
-                        while($row = $result->fetch_assoc()) {
-                            echo "<tr><td>" . $row["number"] . "</td><td>" . $row["distance"] .  "</td><td>" . $row["date"] . "</td><td>" . $row["sensor"] . "</td></tr>";
+                <div class="search-content">
+                    <div class="dropdown">
+                    <button class="dropbtn" id="SearchOn">Search on</button>
+                        <div class="dropdown-content">
+                            <a href="#" onclick="Searchfunc('Number')">Number</a>
+                            <a href="#" onclick="Searchfunc('Distance')">Distance</a>
+                            <a href="#" onclick="Searchfunc('Date')">Date</a>
+                            <a href="#" onclick="Searchfunc('Sensor')">Sensor</a>
+                        </div>
+                    </div>
+                    <input type="text" id="SearchInput" value="Select Search criteria">
+                    <button onclick="requestfunc()" type="button" id="SearchButton">Search</button>
+                </div>
+                <div class="result-content">
+                    <?php
+                        $sql = "SELECT number, distance, date, sensor from measurments";
+                        $result = $conn->query($sql);
+                        if ($result->num_rows > 0) {
+                            echo "<table id=\"resulttable\"><tr><th>Numbers</th><th>Distance</th><th>Date</th><th>Sensor</th></tr>";
+                            while($row = $result->fetch_assoc()) {
+                                echo "<tr><td>" . $row["number"] . "</td><td>" . $row["distance"] .  "</td><td>" . $row["date"] . "</td><td>" . $row["sensor"] . "</td></tr>";
+                            }
+                            echo "</table>";
+                        } else {
+                            echo "0 results";
                         }
-                        echo "</table>";
-                    } else {
-                        echo "0 results";
-                    }
-                ?>
+                    ?>
+                </div>
             </div>
 		</body>
 	</html>
