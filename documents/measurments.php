@@ -64,13 +64,13 @@
 
 			<div class="measure-content">
                 <h2>Measurments Page</h2>
-                <button type="button" onclick="MeasureFunc()">Measure</button>
+                <button type="button" onclick="MeasureFunc()" id="MeasureButton">Measure</button>
                 <p>Press the "Measure" button!</p>
 			</div>
 
             <div>
                 <div class="dropdown">
-                <button class="dropbtn" id="SelectSearch">Search on</button>
+                <button class="dropbtn" id="SearchOn">Search on</button>
                     <div class="dropdown-content">
                         <a href="#" onclick="Searchfunc('Number')">Number</a>
                         <a href="#" onclick="Searchfunc('Distance')">Distance</a>
@@ -79,7 +79,7 @@
                     </div>
                 </div>
                 <input type="text" id="SearchInput" value="Select Search criteria">
-                <button onclick="requestfunc()" type="button" >Search</button>
+                <button onclick="requestfunc()" type="button" id="SearchButton">Search</button>
             </div>
             <div id="div_resulttable">
             <?php
@@ -95,6 +95,6 @@
                         echo "0 results";
                     }
                 ?>
-            </div>
+            </div>    
 		</body>
 	</html>

@@ -187,4 +187,16 @@ body.loggedin {
     text-align: left;
     background-color: #2f3947;;
     color: white;
-  }
+}
+
+#MeasureButton, #SearchButton {
+    background-color: #2f3947;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+}
+
+#MeasureButton:hover ,#SearchButton:hover {
+    background-color: #949391;
+}
