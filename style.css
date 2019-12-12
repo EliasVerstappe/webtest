@@ -179,7 +179,7 @@ body.loggedin {
     padding: 8px;
 }
 
-#resulttable tr:hover {background-color: #949391;}
+#resulttable tr:hover {background-color: #ddd;}
 
 #resulttable th {
     padding-top: 12px;
