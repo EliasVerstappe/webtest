@@ -19,10 +19,16 @@ function north () {
             $(document).ready(function(){
                 var request = new XMLHttpRequest();
                 $("#northwest_btn").mousedown(function(){
-                    window.location.href = ("/documents/pincontrol/northwest.php");
+                    request.open("GET", "/documents/pincontrol/northwest.php");
+                    request.onreadystatechange=function(){
+                        if(request.readyState==4){
+                            if(request.status==200){
+                            } else alert ("HTTP error");
+                        }
+                    }
+                    request.send();
                 });
                 $("#north_btn").mousedown(function(){
-                    // window.location.href = ("/documents/pincontrol/north.php");
                     request.open("GET", "/documents/pincontrol/north.php");
                     request.onreadystatechange=function(){
                         if(request.readyState==4){
@@ -34,7 +40,6 @@ function north () {
                 });
 
                 $("button").mouseup(function(){
-                    // window.location.href = ("/documents/pincontrol/stop.php");
                     request.open("GET", "/documents/pincontrol/stop.php");
                     request.onreadystatechange=function(){
                         if(request.readyState==4){
@@ -44,6 +49,15 @@ function north () {
                     }
                     request.send();
                 });
+
+                // PROBEER DIT AF TE ZONDEREN:
+                // request.onreadystatechange=function(){
+                //     if(request.readyState==4){
+                //         if(request.status==200){
+                //         } else alert ("HTTP error");
+                //     }
+                // }
+                // request.send();
             });
         </script>
 
