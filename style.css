@@ -200,3 +200,23 @@ body.loggedin {
 #MeasureButton:hover ,#SearchButton:hover {
     background-color: #949391;
 }
+
+.measure-content {
+    width: 80%;
+    margin-left: 10%;
+    padding: 10px;
+}
+
+.search-content {
+    width: 80%;
+    margin-left: 10%;
+    padding: 10px;
+}
+
+#SearchInput {
+    width: 30%;
+}
+
+.result-content {
+    padding: 10px;
+}

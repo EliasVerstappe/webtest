@@ -22,16 +22,16 @@
 
             function Searchfunc(SearchOn){
                 Search = SearchOn;
-                document.getElementById("SelectSearch").innerHTML = Search;
+                document.getElementById("SearchOn").innerHTML = Search;
                 
                 if (Search =='Number'){
                     document.getElementById("SearchInput").value = "Insert a number.";
                 } else if (Search == 'Distance'){
                     document.getElementById("SearchInput").value = "Insert a Distance in mm.";
                 } else if (Search == "Date"){
-                    document.getElementById("SearchInput").value = "insert a date: day/month/year.";
+                    document.getElementById("SearchInput").value = "Insert a date: day/month/year.";
                 } else if (Search == "Sensor") {
-                    document.getElementById("SearchInput").value = "insert sensorname";
+                    document.getElementById("SearchInput").value = "Insert sensor name.";
                 }
             };
 
@@ -65,23 +65,23 @@
 			<div class="measure-content">
                 <h2>Measurments Page</h2>
                 <button type="button" onclick="MeasureFunc()" id="MeasureButton">Measure</button>
-                <p>Press the "Measure" button!</p>
+                <p>Press the "Measure" button to measure the current distance.</p>
 			</div>
 
-            <div>
+            <div class="search-content">
                 <div class="dropdown">
                 <button class="dropbtn" id="SearchOn">Search on</button>
                     <div class="dropdown-content">
                         <a href="#" onclick="Searchfunc('Number')">Number</a>
                         <a href="#" onclick="Searchfunc('Distance')">Distance</a>
                         <a href="#" onclick="Searchfunc('Date')">Date</a>
-                        <a href="#" onclick="Searchfunc('Number')">Sensor</a>
+                        <a href="#" onclick="Searchfunc('Sensor')">Sensor</a>
                     </div>
                 </div>
                 <input type="text" id="SearchInput" value="Select Search criteria">
                 <button onclick="requestfunc()" type="button" id="SearchButton">Search</button>
             </div>
-            <div id="div_resulttable">
+            <div class="result-content">
             <?php
                     $sql = "SELECT number, distance, date, sensor from measurments";
                     $result = $conn->query($sql);
