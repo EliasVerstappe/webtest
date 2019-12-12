@@ -163,14 +163,15 @@ body.loggedin {
 
 .dropdown:hover .dropdown-content {display: block;}
 
-.dropdown:hover .dropbtn {background-color: #3e8e41;}
+.dropdown:hover .dropbtn {background-color: #2f3947;}
 
 /* CSS for table */
 
 #resulttable {
     font-family: -apple-system, BlinkMacSystemFont, "segoe ui", roboto, oxygen, ubuntu, cantarell, "fira sans", "droid sans", "helvetica neue", Arial, sans-serif;
     border-collapse: collapse;
-    width: 100%;
+    width: 80%;
+    margin-left: 10%;    
 }
 
 #resulttable td, #resulttable th {
@@ -178,7 +179,7 @@ body.loggedin {
     padding: 8px;
 }
 
-#resulttable tr:hover {background-color: #2f3947;}
+#resulttable tr:hover {background-color: #949391;}
 
 #resulttable th {
     padding-top: 12px;
