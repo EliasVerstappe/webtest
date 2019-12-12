@@ -132,13 +132,14 @@ display: block;
     font-size: 16px;
     border: none;
 }
+#SearchButton {
+    float: right;
+}
 #MeasureButton:hover ,#SearchButton:hover {
     background-color: #949391;
 }
 .measure-content {
     width: 100%;
-    /*margin-left: 10%;*/
-    /*padding: 10px;*/
 }
 .search-content {
     width: 100%;
@@ -146,7 +147,8 @@ display: block;
     padding: 10px;
 }
 #SearchInput {
-    width: 30%;
+    width: 80%;
+    height: 50px;
 }
 .result-content {
     padding: 10px;
