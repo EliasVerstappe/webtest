@@ -60,9 +60,8 @@
 					<a href="profile.php"><i class="fas fa-user-circle"></i>Profile</a>
 					<a href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a>
 				</div>
-			</nav>
-
-			<div class="measure-content">
+            </nav> 
+            <div class="measure-content">
                 <h2>Measurments Page</h2>
                 <button type="button" onclick="MeasureFunc()" id="MeasureButton">Measure</button>
                 <p>Press the "Measure" button to measure the current distance.</p>
@@ -95,6 +94,6 @@
                         echo "0 results";
                     }
                 ?>
-            </div>    
+            </div>
 		</body>
 	</html>
