@@ -3,6 +3,7 @@
     <head>
         <title>Live control</title>
         <link href="../styles/live_control.css" rel="stylesheet" type="text/css">
+        <link href="../styles/beta_live_control.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
     </head>
 
@@ -23,9 +24,9 @@
 
             <table class="buttontable">
             <tr>
-                <td><button onmousedown="change_pin('northwest');" onmouseup="change_pin('stop');"><i class="fas fa-expand-arrows-alt"></i></button></td>
+                <td><button onmousedown="change_pin('northwest');" onmouseup="change_pin('stop');"><i class="fas fa-arrow-up" id="northwest"></i></button></td>
                 <td><button onmousedown="change_pin('north');" onmouseup="change_pin('stop');"><i class="fas fa-arrow-up"></i></button></td>
-                <td><button onmousedown="change_pin('northeast');" onmouseup="change_pin('stop');"><i class="fas fa-expand-arrows-alt"></i></button></td>
+                <td><button onmousedown="change_pin('northeast');" onmouseup="change_pin('stop');"><i class="fas fa-arrow-up" id="northeast"></i></button></td>
             </tr>
             <tr>
                 <td><button onmousedown="change_pin('west');" onmouseup="change_pin('stop');"><i class="fas fa-arrow-left"></i></button></td>
