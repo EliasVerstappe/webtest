@@ -140,6 +140,13 @@ display: block;
 }
 .measure-content {
     width: 100%;
+    height: 100px;
+}
+.measure-left{
+    float: left;
+}
+.measure-right p {
+    float: left;
 }
 .search-content {
     width: 100%;

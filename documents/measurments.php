@@ -5,6 +5,19 @@
         exit();
     }
     $conn = mysqli_connect('localhost', 'root', '', 'lab_mechatronica');
+
+    function addToDatabase(){
+        $result = "";
+        #$sql = "INSERT INTO 'measurments' ('number', 'distance', 'date', 'sensor') VALUES (NULL, '', 'current_timestamp()', 'MCUD14P40B12RO'), (NULL, '100', 'current_timestamp()', 'MCUD14P40B12RO')";
+        $sql = "SELECT number, distance, date, sensor from measurments";
+        if ($conn->query($sql) === TRUE) {
+            $result = "succesfull!";
+        } else {
+            $result = "error!";
+        }
+        return $result;
+    }
+
 ?>
 <!DOCTYPE html>
 	<html>
@@ -17,7 +30,8 @@
             var Search;
 
             function MeasureFunc(){
-                alert("button pushed!")
+                var test = "<?php echo addToDatabase() ?>";
+                alert(test);
             }
 
             function Searchfunc(SearchOn){
@@ -65,8 +79,12 @@
             <div class="content">
                 <h2>Measurments Page</h2>
                 <div class="measure-content">
-                    <button type="button" onclick="MeasureFunc()" id="MeasureButton">Measure</button>
-                    <p>Press the "Measure" button to measure the current distance.</p>
+                    <div class="measure-left">
+                        <button type="button" onclick="MeasureFunc()" id="MeasureButton">Measure</button>
+                    </div>
+                    <div class="measure-right">
+                        <p>Press the "Measure" button to measure the current distance.</p>
+                    </div>
                 </div>
                 <div class="search-content">
                     <div class="dropdown">
