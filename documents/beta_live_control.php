@@ -1,10 +1,3 @@
-<?php
-function north () {
-    system("gpio -g mode 26 out");
-    system("gpio -g write 26 1");
-};
-?>
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,109 +9,56 @@ function north () {
 
 
         <script>
-            $(document).ready(function(){
-                var request = new XMLHttpRequest();
-                $("#northwest_btn").mousedown(function(){
-                    request.open("GET", "/documents/pincontrol/northwest.php");
-                    request.onreadystatechange=function(){
-                        if(request.readyState==4){
-                            if(request.status==200){
-                            } else alert ("HTTP error");
-                        }
-                    }
-                    request.send();
-                });
-                $("#north_btn").mousedown(function(){
-                    request.open("GET", "/documents/pincontrol/north.php");
-                    request.onreadystatechange=function(){
-                        if(request.readyState==4){
-                            if(request.status==200){
-                            } else alert ("HTTP error");
-                        }
-                    }
-                    request.send();
-                });
-                $("#northeast_btn").mousedown(function(){
-                    request.open("GET", "/documents/pincontrol/northeast.php");
-                    request.onreadystatechange=function(){
-                        if(request.readyState==4){
-                            if(request.status==200){
-                            } else alert ("HTTP error");
-                        }
-                    }
-                    request.send();
-                });
-                $("#west_btn").mousedown(function(){
-                    request.open("GET", "/documents/pincontrol/west.php");
-                    request.onreadystatechange=function(){
-                        if(request.readyState==4){
-                            if(request.status==200){
-                            } else alert ("HTTP error");
-                        }
-                    }
-                    request.send();
-                });
-                $("#east_btn").mousedown(function(){
-                    request.open("GET", "/documents/pincontrol/east.php");
-                    request.onreadystatechange=function(){
-                        if(request.readyState==4){
-                            if(request.status==200){
-                            } else alert ("HTTP error");
-                        }
-                    }
-                    request.send();
-                });
-                $("#southwest_btn").mousedown(function(){
-                    request.open("GET", "/documents/pincontrol/southwest.php");
-                    request.onreadystatechange=function(){
-                        if(request.readyState==4){
-                            if(request.status==200){
-                            } else alert ("HTTP error");
-                        }
-                    }
-                    request.send();
-                });
-                $("#south_btn").mousedown(function(){
-                    request.open("GET", "/documents/pincontrol/south.php");
-                    request.onreadystatechange=function(){
-                        if(request.readyState==4){
-                            if(request.status==200){
-                            } else alert ("HTTP error");
-                        }
-                    }
-                    request.send();
-                });
-                $("#southeast_btn").mousedown(function(){
-                    request.open("GET", "/documents/pincontrol/southeast.php");
-                    request.onreadystatechange=function(){
-                        if(request.readyState==4){
-                            if(request.status==200){
-                            } else alert ("HTTP error");
-                        }
-                    }
-                    request.send();
-                });
 
-                $("button").mouseup(function(){
-                    request.open("GET", "/documents/pincontrol/stop.php");
-                    request.onreadystatechange=function(){
-                        if(request.readyState==4){
-                            if(request.status==200){
-                            } else alert ("HTTP error");
-                        }
-                    }
-                    request.send();
-                });
+        function sendRequest(page){
+            var request = new XMLHttpRequest();
+            request.open("GET", page);
+            request.onreadystatechange=function(){
+                if(request.readyState==4){
+                    if(request.status==200){
+                    } else alert ("HTTP error");
+                }
+            }
+            request.send();
+        }
 
-                // PROBEER DIT AF TE ZONDEREN:
-                // request.onreadystatechange=function(){
-                //     if(request.readyState==4){
-                //         if(request.status==200){
-                //         } else alert ("HTTP error");
-                //     }
-                // }
-                // request.send();
+        $(document).ready(function(){
+            $("#northwest_btn").mousedown(function(){
+                sendRequest("/documents/pincontrol/northwest.php");
             });
+            $("#north_btn").mousedown(function(){
+                sendRequest("/documents/pincontrol/north.php");
+            });
+            $("#northeast_btn").mousedown(function(){
+                sendRequest("/documents/pincontrol/northeast.php");
+            });
+            $("#west_btn").mousedown(function(){
+                sendRequest("/documents/pincontrol/west.php");
+            });
+            $("#east_btn").mousedown(function(){
+                sendRequest("/documents/pincontrol/east.php");
+            });
+            $("#southwest_btn").mousedown(function(){
+                sendRequest("/documents/pincontrol/southwest.php");
+            });
+            $("#south_btn").mousedown(function(){
+                sendRequest("/documents/pincontrol/south.php");
+            });
+            $("#southeast_btn").mousedown(function(){
+                sendRequest("/documents/pincontrol/southeast.php");
+            });
+            $("#ccw_btn").mousedown(function(){
+                sendRequest("/documents/pincontrol/ccw.php");
+            });
+            $("#cw_btn").mousedown(function(){
+                sendRequest("/documents/pincontrol/cw.php");
+            });
+
+            $("button").mouseup(function(){
+                sendRequest("/documents/pincontrol/stop.php");
+            });
+
+        });
         </script>
 
 
@@ -149,7 +89,7 @@ function north () {
             <tr>
                 <td><button id="west_btn"><i class="fas fa-arrow-left"></i></button></td>
                 <td></td>
-                <td><button id="east"><i class="fas fa-arrow-right"></i></button></td>
+                <td><button id="east_btn"><i class="fas fa-arrow-right"></i></button></td>
             </tr>
             <tr>
                 <td><button id="southwest_btn"><i class="fas fa-arrow-up" id="southwest"></i></button></td>
