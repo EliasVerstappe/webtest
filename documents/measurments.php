@@ -30,8 +30,7 @@
             var Search;
 
             function MeasureFunc(){
-                var test = "<?php echo addToDatabase() ?>";
-                alert(test);
+                "<?php addToDatabase() ?>";
             }
 
             function Searchfunc(SearchOn){
@@ -102,7 +101,7 @@
                 <div class="result-content">
                     <?php
                         $conn = mysqli_connect('localhost', 'root', '', 'lab_mechatronica');
-                        $sql = "SELECT number, distance, date, sensor from measurments";
+                        $sql = "SELECT number, distance, date, sensor from measurments order by number desc";
                         $result = $conn->query($sql);
                         if ($result->num_rows > 0) {
                             echo "<table id=\"resulttable\"><tr><th>Numbers</th><th>Distance</th><th>Date</th><th>Sensor</th></tr>";
