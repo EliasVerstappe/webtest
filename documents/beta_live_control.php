@@ -152,9 +152,9 @@ function north () {
                 <td><button id="east"><i class="fas fa-arrow-right"></i></button></td>
             </tr>
             <tr>
-                <td><button id="southwest_btn"><i class="fas fa-expand-arrows-alt"></i></button></td>
+                <td><button id="southwest_btn"><i class="fas fa-arrow-up" id="southwest"></i></button></td>
                 <td><button id="south_btn"><i class="fas fa-arrow-down"></i></button></td>
-                <td><button id="southeast_btn"><i class="fas fa-expand-arrows-alt"></i></button></td>
+                <td><button id="southeast_btn"><i class="fas fa-arrow-up" id="southeast"></i></button></td>
             </tr>
             <tr>
                 <td><button id="ccw_btn"><i class="fas fa-undo-alt"></i></button></td>
