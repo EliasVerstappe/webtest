@@ -17,8 +17,8 @@
         return $result;
         $conn->close();
     }
-
 ?>
+
 <!DOCTYPE html>
 	<html>
 		<head>
@@ -69,7 +69,7 @@
 	
 			<nav class="navtop">
 				<div>
-					<h1>SaLuJan - Robot</h1>
+					<h1>Project :: Robot</h1>
                     <a href="homepage.php"><i class="fas fa-home"></i>Homepage</a>
 					<a href="profile.php"><i class="fas fa-user-circle"></i>Profile</a>
 					<a href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a>
@@ -101,6 +101,7 @@
                 </div>
                 <div class="result-content">
                     <?php
+                        $conn = mysqli_connect('localhost', 'root', '', 'lab_mechatronica');
                         $sql = "SELECT number, distance, date, sensor from measurments";
                         $result = $conn->query($sql);
                         if ($result->num_rows > 0) {
@@ -112,6 +113,7 @@
                         } else {
                             echo "0 results";
                         }
+                        $conn->close();
                     ?>
                 </div>
             </div>
