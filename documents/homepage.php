@@ -20,7 +20,7 @@ if (!isset($_SESSION['loggedin'])) {
 	
 			<nav class="navtop">
 				<div>
-					<h1>SaLuJan - Robot</h1>
+					<h1>Project :: Robot</h1>
 					<a href="profile.php"><i class="fas fa-user-circle"></i>Profile</a>
 					<a href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a>
 				</div>
