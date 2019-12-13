@@ -3,11 +3,35 @@
         <title>Lab Mechatronica</title>
         <link href="../style.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+        <script>
+
+        function sendRequest(page){
+            var request = new XMLHttpRequest();
+            request.open("GET", page);
+            request.onreadystatechange=function(){
+                if(request.readyState==4){
+                    if(request.status==200){
+                    } else alert ("HTTP error");
+                }
+            }
+            request.send();
+        }
+
+        $(document).ready(function(){
+            $("#track_btn_star").click(function(){
+                sendRequest("/documents/pincontrol/routes/star.php");
+            });
+        });
+        </script>
+
     </head>
     <body>
         <nav class="navtop">
             <div>
-                <h1>SaLuJan - Robot</h1>
+                <h1>Project :: Robot</h1>
                 <a href="homepage.php"><i class="fas fa-home"></i>Homepage</a>
                 <a href="profile.php"><i class="fas fa-user-circle"></i>Profile</a>
                 <a href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a>
@@ -16,9 +40,6 @@
         <div class="content">
             <h2>Trajecten</h2>
             <div class='pretrack'>
-            <button id="track_btn_circle">
-                <svg xmlns="http://www.w3.org/2000/svg" xmlns:lucid="lucid" width="200" height="200"><path d="M180 100c0 44.18-35.82 80-80 80s-80-35.82-80-80 35.82-80 80-80 80 35.82 80 80z" stroke="#000" stroke-width="4" fill="#f9d2de" lucid:page-tab-id="0_0"/></svg>
-            </button> 
             <button id="track_btn_cross">   
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:lucid="lucid" width="200" height="200"><path d="M20 60h40V20h80v40h40v80h-40v40H60v-40H20z" stroke="#000" stroke-width="4" fill="#ffdba9" lucid:page-tab-id="0_0"/></svg>
             </button> 
