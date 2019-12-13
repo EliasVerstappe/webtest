@@ -17,8 +17,8 @@
         return $result;
         $conn->close();
     }
-
 ?>
+
 <!DOCTYPE html>
 	<html>
 		<head>
@@ -30,8 +30,7 @@
             var Search;
 
             function MeasureFunc(){
-                var test = "<?php echo addToDatabase() ?>";
-                alert(test);
+                <?php echo addToDatabase() ?>;
             }
 
             function Searchfunc(SearchOn){
@@ -69,7 +68,7 @@
 	
 			<nav class="navtop">
 				<div>
-					<h1>SaLuJan - Robot</h1>
+					<h1>Project :: Robot</h1>
                     <a href="homepage.php"><i class="fas fa-home"></i>Homepage</a>
 					<a href="profile.php"><i class="fas fa-user-circle"></i>Profile</a>
 					<a href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a>
@@ -99,19 +98,21 @@
                     <input type="text" id="SearchInput" value="Select Search criteria">
                     <button onclick="requestfunc()" type="button" id="SearchButton">Search</button>
                 </div>
-                <div class="result-content">
+                <div class="result-content" id="resulttable">
                     <?php
-                        $sql = "SELECT number, distance, date, sensor from measurments";
-                        $result = $conn->query($sql);
-                        if ($result->num_rows > 0) {
-                            echo "<table id=\"resulttable\"><tr><th>Numbers</th><th>Distance</th><th>Date</th><th>Sensor</th></tr>";
-                            while($row = $result->fetch_assoc()) {
-                                echo "<tr><td>" . $row["number"] . "</td><td>" . $row["distance"] .  "</td><td>" . $row["date"] . "</td><td>" . $row["sensor"] . "</td></tr>";
+                            $conn = mysqli_connect('localhost', 'root', '', 'lab_mechatronica');
+                            $sql = "SELECT number, distance, date, sensor from measurments order by number desc";
+                            $result = $conn->query($sql);
+                            if ($result->num_rows > 0) {
+                                echo "<table id=\"resulttable\"><tr><th>Numbers</th><th>Distance</th><th>Date</th><th>Sensor</th></tr>";
+                                while($row = $result->fetch_assoc()) {
+                                    echo "<tr><td>" . $row["number"] . "</td><td>" . $row["distance"] .  "</td><td>" . $row["date"] . "</td><td>" . $row["sensor"] . "</td></tr>";
+                                }
+                                echo "</table>";
+                            } else {
+                                echo "0 results";
                             }
-                            echo "</table>";
-                        } else {
-                            echo "0 results";
-                        }
+                            $conn->close();   
                     ?>
                 </div>
             </div>
