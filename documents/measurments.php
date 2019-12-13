@@ -4,18 +4,18 @@
         header('Location: index.php');
         exit();
     }
-    $conn = mysqli_connect('localhost', 'root', '', 'lab_mechatronica');
 
     function addToDatabase(){
+        $conn = mysqli_connect('localhost', 'root', '', 'lab_mechatronica');
         $result = "";
-        #$sql = "INSERT INTO 'measurments' ('number', 'distance', 'date', 'sensor') VALUES (NULL, '', 'current_timestamp()', 'MCUD14P40B12RO'), (NULL, '100', 'current_timestamp()', 'MCUD14P40B12RO')";
-        $sql = "SELECT number, distance, date, sensor from measurments";
+        $sql = "INSERT INTO measurments (distance, date, sensor) VALUES ('100', 'current_timestamp()', 'MCUD14P40B12RO')";
         if ($conn->query($sql) === TRUE) {
             $result = "succesfull!";
         } else {
             $result = "error!";
         }
         return $result;
+        $conn->close();
     }
 
 ?>
