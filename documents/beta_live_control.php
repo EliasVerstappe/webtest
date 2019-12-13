@@ -38,6 +38,66 @@ function north () {
                     }
                     request.send();
                 });
+                $("#northeast_btn").mousedown(function(){
+                    request.open("GET", "/documents/pincontrol/northeast.php");
+                    request.onreadystatechange=function(){
+                        if(request.readyState==4){
+                            if(request.status==200){
+                            } else alert ("HTTP error");
+                        }
+                    }
+                    request.send();
+                });
+                $("#west_btn").mousedown(function(){
+                    request.open("GET", "/documents/pincontrol/west.php");
+                    request.onreadystatechange=function(){
+                        if(request.readyState==4){
+                            if(request.status==200){
+                            } else alert ("HTTP error");
+                        }
+                    }
+                    request.send();
+                });
+                $("#east_btn").mousedown(function(){
+                    request.open("GET", "/documents/pincontrol/east.php");
+                    request.onreadystatechange=function(){
+                        if(request.readyState==4){
+                            if(request.status==200){
+                            } else alert ("HTTP error");
+                        }
+                    }
+                    request.send();
+                });
+                $("#southwest_btn").mousedown(function(){
+                    request.open("GET", "/documents/pincontrol/southwest.php");
+                    request.onreadystatechange=function(){
+                        if(request.readyState==4){
+                            if(request.status==200){
+                            } else alert ("HTTP error");
+                        }
+                    }
+                    request.send();
+                });
+                $("#south_btn").mousedown(function(){
+                    request.open("GET", "/documents/pincontrol/south.php");
+                    request.onreadystatechange=function(){
+                        if(request.readyState==4){
+                            if(request.status==200){
+                            } else alert ("HTTP error");
+                        }
+                    }
+                    request.send();
+                });
+                $("#southeast_btn").mousedown(function(){
+                    request.open("GET", "/documents/pincontrol/southeast.php");
+                    request.onreadystatechange=function(){
+                        if(request.readyState==4){
+                            if(request.status==200){
+                            } else alert ("HTTP error");
+                        }
+                    }
+                    request.send();
+                });
 
                 $("button").mouseup(function(){
                     request.open("GET", "/documents/pincontrol/stop.php");
@@ -84,27 +144,24 @@ function north () {
             <tr>
                 <td><button id="northwest_btn"><i class="fas fa-arrow-up" id="northwest"></i></button></td>
                 <td><button id="north_btn"><i class="fas fa-arrow-up"></i></button></td>
-                <td><button onmousedown="change_pin('northeast');" onmouseup="change_pin('stop');"><i class="fas fa-arrow-up" id="northeast"></i></button></td>
+                <td><button id="northeast_btn"><i class="fas fa-arrow-up" id="northeast"></i></button></td>
             </tr>
             <tr>
-                <td><button onmousedown="change_pin('west');" onmouseup="change_pin('stop');"><i class="fas fa-arrow-left"></i></button></td>
-                <td><button id="stop_btn"><i class="fas fa-stop-circle"></i></button></td>
-                <td><button onmousedown="change_pin('east');" onmouseup="change_pin('stop');"><i class="fas fa-arrow-right"></i></button></td>
-            </tr>
-            <tr>
-                <td><button onmousedown="change_pin('southwest');" onmouseup="change_pin('stop');"><i class="fas fa-expand-arrows-alt"></i></button></td>
-                <td><button onmousedown="change_pin('south');" onmouseup="change_pin('stop');"><i class="fas fa-arrow-down"></i></button></td>
-                <td><button onmousedown="change_pin('southeast');" onmouseup="change_pin('stop');"><i class="fas fa-expand-arrows-alt"></i></button></td>
-            </tr>
-            <tr>
-                <td><button onmousedown="change_pin('ccw');" onmouseup="change_pin('stop');"><i class="fas fa-undo-alt"></i></button></td>
+                <td><button id="west_btn"><i class="fas fa-arrow-left"></i></button></td>
                 <td></td>
-                <td><button onmousedown="change_pin('cw');" onmouseup="change_pin('stop');"><i class="fas fa-redo-alt"></i></button></td>
+                <td><button id="east"><i class="fas fa-arrow-right"></i></button></td>
+            </tr>
+            <tr>
+                <td><button id="southwest_btn"><i class="fas fa-expand-arrows-alt"></i></button></td>
+                <td><button id="south_btn"><i class="fas fa-arrow-down"></i></button></td>
+                <td><button id="southeast_btn"><i class="fas fa-expand-arrows-alt"></i></button></td>
+            </tr>
+            <tr>
+                <td><button id="ccw_btn"><i class="fas fa-undo-alt"></i></button></td>
+                <td></td>
+                <td><button id="cw_btn"><i class="fas fa-redo-alt"></i></button></td>
             </tr>
             
-            <!-- javascript -->
-            <!-- <script src="script.js"></script> -->
-
             </table>
 
         </div>
