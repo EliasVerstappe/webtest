@@ -85,6 +85,7 @@ sleep(1);
 
 
 //turn off last pin
+system("gpio -g write 19 0");
 system("gpio -g write 26 0");
 
 ?>
