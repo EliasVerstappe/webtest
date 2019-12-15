@@ -81,3 +81,21 @@ body.loggedin {
 	padding: 5px;
 	margin: 0 0 10px 0;
 }
+
+/* link buttons */
+.navigationbar {
+	text-align: center;
+}
+
+#link-button {
+	background-color: #2f3947;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+	border: none;
+	width: 24%;
+}
+
+#link-button:hover {
+	background-color: #949391;
+}
