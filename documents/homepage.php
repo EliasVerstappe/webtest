@@ -33,11 +33,15 @@ if (!isset($_SESSION['loggedin'])) {
 
 				<div class='navigationbar'>
 					<ul>
-						<li><a href="settings.php">Instellingen</a></li>
-						<li><a href="tracks.php">Trajecten</a></li>
-						<li><a href="measurments.php">Measurments</a></li>
-						<li><a href="beta_live_control.php">Live control</a></li>
+						<li><a id="list-link" href="settings.php">Instellingen</a></li>
+						<li><a id="list-link" href="tracks.php">Trajecten</a></li>
+						<li><a id="list-link" href="measurments.php">Measurments</a></li>
+						<li><a id="list-link" href="beta_live_control.php">Live control</a></li>
 					</ul>
+				</div>
+
+				<div class='general-info'>
+					<p>Info ivm de website. en wie hem gemaakt heeft.</p>
 				</div>
 			</div>
 		</body>
