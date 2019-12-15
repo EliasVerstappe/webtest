@@ -81,31 +81,3 @@ body.loggedin {
 	padding: 5px;
 	margin: 0 0 10px 0;
 }
-
-/* CSS for list*/
-ul {
-	text-align: center;
-}
-
-li {
-	display: inline-block;
-}
-
-
-/* CSS for links*/
-a:link, a:visited {
-    background-color: #2f3947;
-    color: white;
-    padding: 14px 25px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-  }
-  
-  a:hover, a:active {
-    background-color: #949391;
-  }
-
-  #list-link {
-	  width: 100%;
-  }

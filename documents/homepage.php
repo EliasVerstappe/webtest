@@ -32,12 +32,10 @@ if (!isset($_SESSION['loggedin'])) {
 				<p>Welcome back, <?=$_SESSION['name']?>!</p>
 
 				<div class='navigationbar'>
-					<ul>
-						<li><a id="list-link" href="settings.php">Instellingen</a></li>
-						<li><a id="list-link" href="tracks.php">Trajecten</a></li>
-						<li><a id="list-link" href="measurments.php">Measurments</a></li>
-						<li><a id="list-link" href="beta_live_control.php">Live control</a></li>
-					</ul>
+					<button onclick="window.location.href = 'settings.php'">Settings</button>
+					<button onclick="window.location.href = 'tracks.php'">Trajects</button>
+					<button onclick="window.location.href = 'measurments.php'">Measurments</button>
+					<button onclick="window.location.href = 'beta_live_control.php'">Live control</button>
 				</div>
 
 				<div class='general-info'>
