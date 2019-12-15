@@ -32,10 +32,10 @@ if (!isset($_SESSION['loggedin'])) {
 				<p>Welcome back, <?=$_SESSION['name']?>!</p>
 
 				<div class='navigationbar'>
-					<button id="link-button" onclick="window.location.href = 'settings.php'">Settings</button>
-					<button id="link-button"onclick="window.location.href = 'tracks.php'">Trajects</button>
-					<button id="link-button"onclick="window.location.href = 'measurments.php'">Measurments</button>
-					<button id="link-button"onclick="window.location.href = 'beta_live_control.php'">Live control</button>
+					<button id="link-button" onclick="window.location.href = 'settings.php'"><i class="fas fa-cogs"></i> Settings</button> 					<!-- icon:  <i class="fas fa-cogs"></i> -->
+					<button id="link-button"onclick="window.location.href = 'tracks.php'"><i class="fas fa-car"></i> Trajects</button> 					<!-- icon : <i class="fas fa-car"></i> -->
+					<button id="link-button"onclick="window.location.href = 'measurments.php'"><i class="fas fa-ruler"></i> Measurments</button>				<!-- icon : <i class="fas fa-ruler"></i> -->
+					<button id="link-button"onclick="window.location.href = 'beta_live_control.php'"><i class="fas fa-car"></i> Live control</button>		<!-- icon : <i class="fas fa-car"></i> --> 
 				</div>
 
 				<div class='general-info'>
