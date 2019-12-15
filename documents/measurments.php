@@ -40,7 +40,7 @@
     <body class="loggedin">
         <nav class="navtop">
             <div>
-                <h1 id="link-button" onclick="window.location.href = 'homepage.php'" >Project :: Robot</h1>
+                <h1 onclick="window.location.href = 'homepage.php'" >Project :: Robot</h1>
                 <a href="homepage.php"><i class="fas fa-home"></i>Homepage</a>
                 <a href="profile.php"><i class="fas fa-user-circle"></i>Profile</a>
                 <a href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a>
