@@ -33,13 +33,14 @@ if (!isset($_SESSION['loggedin'])) {
 
 				<div class='navigationbar'>
 					<button id="link-button" onclick="window.location.href = 'settings.php'"><i class="fas fa-cogs"></i> Settings</button> 					<!-- icon:  <i class="fas fa-cogs"></i> -->
-					<button id="link-button"onclick="window.location.href = 'tracks.php'"><i class="fas fa-car"></i> Trajects</button> 					<!-- icon : <i class="fas fa-car"></i> -->
-					<button id="link-button"onclick="window.location.href = 'measurments.php'"><i class="fas fa-ruler"></i> Measurments</button>				<!-- icon : <i class="fas fa-ruler"></i> -->
-					<button id="link-button"onclick="window.location.href = 'beta_live_control.php'"><i class="fas fa-car"></i> Live control</button>		<!-- icon : <i class="fas fa-car"></i> --> 
+					<button id="link-button" onclick="window.location.href = 'tracks.php'"><i class="fas fa-car"></i> Trajects</button> 					<!-- icon : <i class="fas fa-car"></i> -->
+					<button id="link-button" onclick="window.location.href = 'measurments.php'"><i class="fas fa-ruler"></i> Measurments</button>				<!-- icon : <i class="fas fa-ruler"></i> -->
+					<button id="link-button" onclick="window.location.href = 'beta_live_control.php'"><i class="fas fa-car"></i> Live control</button>		<!-- icon : <i class="fas fa-car"></i> --> 
 				</div>
 
 				<div class='general-info'>
-					<p>Info ivm de website. en wie hem gemaakt heeft.</p>
+					<p>This is the webpage that controls the robot. This website is part of the 'Lab Mechatronica' course. 
+					The project was developed by Yentel Kint, Daan Ver Eecke and Elias Verstappe. Michiel Clepkens also partly helped with this project.</p>
 				</div>
 			</div>
 		</body>
