@@ -13,12 +13,18 @@
             $msg = "Passwords don't match!";
         } else {
             $hashed_pwd = password_hash($_POST['password'], PASSWORD_DEFAULT);
-
-            $stmt = $dbc->prepare("INSERT INTO users (name, email, password)");
-            $stmt->bind_param($_POST['name'], $_POST['email'], $hashed_pwd);
-            $stmt->execute();
+            $name = $_POST['username'];
+            $email = $_POST['email'];
+            
+            $sql = ("INSERT INTO users (username, email, password) VALUES ('{$name}', '{$email}', '{$hashed_pwd}')");
+            $stmt = $dbc->prepare($sql);
+            if(!$stmt){
+               echo "Prepare failed: (". $dbc->errno.") ".$dbc->error."<br>";
+            } else {
+                $stmt->execute();
+            }
             $stmt->close();
-            // $dbc->query("INSERT INTO users (name, email, password) VALUES ('$name', '$email', '$hashed_pwd')");
+
             header('Location: ./successful_registration.php');
         }   
     }
