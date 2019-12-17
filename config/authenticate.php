@@ -32,8 +32,7 @@ if ($stmt->num_rows > 0) {
 	$stmt->fetch();
 	// Account exists, now we verify the password.
 	// Note: remember to use password_hash in your registration file to store the hashed passwords.
-	// if (password_verify($_POST['password'], $password)) { // TODO: deze lijn is het originele, ik heb die 'password_hash erbij gezet omdat ik niet weet waar die hoort??
-	if (password_verify($_POST['password'], password_hash($password, PASSWORD_DEFAULT))) {
+	if (password_verify($_POST['password'], $password)) { // TODO: deze lijn is het originele, ik heb die 'password_hash erbij gezet omdat ik niet weet waar die hoort??
 		// Verification success! User has loggedin!
 		// Create sessions so we know the user is logged in, they basically act like cookies but remember the data on the server.
 		session_regenerate_id();
