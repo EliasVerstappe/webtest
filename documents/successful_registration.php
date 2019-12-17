@@ -15,7 +15,7 @@
 		<br><br>
 	</div>
 	
-	<a href="./index.php">Sign in</a>
+	<a href="../index.php">Sign in</a>
 
 </div>
 
