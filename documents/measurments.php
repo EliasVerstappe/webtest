@@ -1,4 +1,5 @@
 <?php
+session_start();
 if (!isset($_SESSION['loggedin'])) {
 	header('Location: ../index.php');
 	exit();
@@ -96,11 +97,11 @@ if (!isset($_SESSION['loggedin'])) {
 </html>
 
 <?php
-    session_start();
-    if (!isset($_SESSION['loggedin'])) {
-        header('Location: index.php');
-        exit();
-    }
+    // session_start();
+    // if (!isset($_SESSION['loggedin'])) {
+    //     header('Location: index.php');
+    //     exit();
+    // }
 
     $distance = $sensor = "";
 
