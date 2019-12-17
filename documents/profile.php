@@ -52,14 +52,24 @@ $stmt->close();
 						<td><?=$email?></td>
 					</tr>
 
-				<form action="POST">
+				<form action="change_password.php" method="post">
 					<tr>
 						<td>Change password:</td>
+						<td> <input type="password" placeholder="Old password" name="old_password" id="old_password" required> </td>
+					</tr>
+					<tr>
+						<td></td>
 						<td> <input type="password" placeholder="New password" name="new_password" id="new_password" required> </td>
 					</tr>
 					<tr>
 						<td></td>
 						<td> <input type="password" placeholder="Confirm new password" name="c_new_password" id="c_new_password" required> </td>
+					</tr>
+					<tr>
+						<td></td>
+						<td> <!-- password has succesfully been changed message --> 
+							
+						</td>
 					</tr>
 					<tr>
 						<td></td>
