@@ -10,18 +10,22 @@ $DATABASE_HOST = 'localhost';
 $DATABASE_USER = 'root';
 $DATABASE_PASS = '';
 $DATABASE_NAME = 'lab_mechatronica';
-$con = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
+$dbc = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
 if (mysqli_connect_errno()) {
 	die ('Failed to connect to MySQL: ' . mysqli_connect_error());
 }
-// We don't have the password or email info stored in sessions so instead we can get the results from the database.
-$stmt = $con->prepare('SELECT password FROM users WHERE id = ?');
-// In this case we can use the account ID to get the account info.
-$stmt->bind_param('i', $_SESSION['id']);
-$stmt->execute();
-$stmt->bind_result($password);
-$stmt->fetch();
+
+$stmt = $dbc->prepare('SELECT email FROM users WHERE username = ?');
+$stmt->bind_param('i', $_SESSION['name']);
+if(!$stmt){
+	echo "Prepare failed: (". $dbc->errno.") ".$dbc->error."<br>";
+} else {
+	$stmt->execute();
+	$stmt->bind_result($email);
+	$stmt->fetch();
+}
 $stmt->close();
+
 ?>
 
 <!DOCTYPE html>
@@ -50,10 +54,27 @@ $stmt->close();
 						<td>Username:</td>
 						<td><?=$_SESSION['name']?></td>
 					</tr>
+
 					<tr>
-						<td>Password:</td>
-						<td><?=$password?></td>
+						<td>Email:</td>
+						<td><?=$email?></td>
 					</tr>
+
+				<form action="POST">
+					<tr>
+						<td>Change password:</td>
+						<td> <input type="password" placeholder="New password" name="new_password" id="new_password" required> </td>
+					</tr>
+					<tr>
+						<td></td>
+						<td> <input type="password" placeholder="Confirm new password" name="c_new_password" id="c_new_password" required> </td>
+					</tr>
+					<tr>
+						<td></td>
+						<td> <input type="submit" value="Submit"> </td>
+					</tr>
+				</form>
+
 				</table>
 			</div>
 		</div>
