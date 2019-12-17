@@ -1,11 +1,10 @@
 <?php
     session_start();
-
-
+    include_once ('../config/db-conn.php');
+    
     $msg = "";
     
     if (isset($_POST['submit'])) {
-        $dbc = mysqli_connect('localhost', 'root', '', 'lab_mechatronica');
         if ( mysqli_connect_errno() ) {
             die ('Failed to connect to MySQL: ' . mysqli_connect_error());
         }
@@ -26,6 +25,7 @@
             }
             $stmt->close();
 
+            $_SESSION['form_ok'] = true;
             header('Location: ./successful_registration.php');
         }   
     }
