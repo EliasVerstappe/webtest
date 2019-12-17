@@ -1,3 +1,10 @@
+<?php
+if (!isset($_SESSION['loggedin'])) {
+	header('Location: ../index.php');
+	exit();
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>

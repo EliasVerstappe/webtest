@@ -1,3 +1,10 @@
+<?php
+if (!isset($_SESSION['loggedin'])) {
+	header('Location: ../index.php');
+	exit();
+}
+?>
+
 <html>
     <head>
         <title>Lab Mechatronica</title>
