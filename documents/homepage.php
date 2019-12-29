@@ -31,6 +31,20 @@ if (!isset($_SESSION['loggedin'])) {
 
 				<p>Welcome back, <?=$_SESSION['name']?>!</p>
 
+
+				<?php 
+
+				include_once ('../config/db-conn.php');
+
+				$name = $_SESSION['name'];
+				$sql = "SELECT admin FROM users WHERE username='$name' limit 1";
+				$result = mysqli_query($dbc, $sql);
+				$value = mysqli_fetch_object($result);				
+				if($value->admin) : ?>
+					<a href="approve_user.php">Pending user requests</a>
+				<?php endif;				
+				?>
+
 				<div class='navigationbar'>
 					<button id="link-button" onclick="window.location.href = 'settings.php'"><i class="fas fa-cogs"></i> Settings</button> 					<!-- icon:  <i class="fas fa-cogs"></i> -->
 					<button id="link-button" onclick="window.location.href = 'tracks.php'"><i class="fas fa-car"></i> Trajects</button> 					<!-- icon : <i class="fas fa-car"></i> -->
