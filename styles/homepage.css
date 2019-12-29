@@ -99,3 +99,25 @@ body.loggedin {
 #link-button:hover {
 	background-color: #949391;
 }
+
+.welcome-message {
+	text-align: left;
+}
+
+.approve-button-holder {
+	margin-right: 16px;
+	text-align: right;
+}
+
+#approve-button {
+	background-color: #AA2417;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+	border: none;
+	width: 24%;
+}
+
+#approve-button:hover {
+	background-color: #D98981;
+}

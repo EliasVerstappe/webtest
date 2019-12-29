@@ -29,25 +29,34 @@ if (!isset($_SESSION['loggedin'])) {
 			<div class="content">
 				<h2>Home Page</h2>
 
-				<p>Welcome back, <?=$_SESSION['name']?>!</p>
+				<div>
+					<div class="welcome-message">
+						Welcome back, <?=$_SESSION['name']?>!
+					</div>
 
+					<?php 
 
-				<?php 
+					include_once ('../config/db-conn.php');
 
-				include_once ('../config/db-conn.php');
+					$name = $_SESSION['name'];
+					$sql = "SELECT admin FROM users WHERE username='$name' limit 1";
+					$result = mysqli_query($dbc, $sql);
+					$value = mysqli_fetch_object($result);				
+					if($value->admin) : ?>
 
-				$name = $_SESSION['name'];
-				$sql = "SELECT admin FROM users WHERE username='$name' limit 1";
-				$result = mysqli_query($dbc, $sql);
-				$value = mysqli_fetch_object($result);				
-				if($value->admin) : ?>
-					<a href="approve_user.php">Pending user requests</a>
-				<?php endif;				
-				?>
+						<div class="approve-button-holder">
+							<button id="approve-button" onclick="window.location.href = 'approve_user.php'"><i class="fas fa-users-cog"></i> Pending user requests</button>
+						</div>
+
+					<?php endif;				
+					?>
+
+				</div>
+
 
 				<div class='navigationbar'>
-					<button id="link-button" onclick="window.location.href = 'settings.php'"><i class="fas fa-cogs"></i> Settings</button> 					<!-- icon:  <i class="fas fa-cogs"></i> -->
-					<button id="link-button" onclick="window.location.href = 'tracks.php'"><i class="fas fa-car"></i> Trajects</button> 					<!-- icon : <i class="fas fa-car"></i> -->
+					<button id="link-button" onclick="window.location.href = 'profile.php'"><i class="fas fa-cogs"></i> Settings</button> 					<!-- icon:  <i class="fas fa-cogs"></i> -->
+					<button id="link-button" onclick="window.location.href = 'tracks.php'"><i class="fas fa-car"></i> Paths</button> 					<!-- icon : <i class="fas fa-car"></i> -->
 					<button id="link-button" onclick="window.location.href = 'measurments.php'"><i class="fas fa-ruler"></i> Measurments</button>				<!-- icon : <i class="fas fa-ruler"></i> -->
 					<button id="link-button" onclick="window.location.href = 'beta_live_control.php'"><i class="fas fa-car"></i> Live control</button>		<!-- icon : <i class="fas fa-car"></i> --> 
 				</div>
