@@ -5,7 +5,7 @@ function approveUser(id) {
     var doc = document.getElementById(id);
 
     var data = id ;
-    httpPOST("http://localhost:8080/documents/responses/user-handler.php", data);
+    httpPOST("../documents/responses/user-handler.php", data);
 }
 
 function httpPOST(url, data)
