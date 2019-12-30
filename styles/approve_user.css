@@ -1,0 +1,82 @@
+.content {
+	width: 1000px;
+	margin: 0 auto;
+}
+
+table {
+    width: 1000px;
+    border-spacing: 1;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+table td, table th {
+    padding-left: 12px;
+}
+table thead tr {
+    height: 60px;
+}
+table tbody tr {
+    height: 50px;
+}
+
+.table-head-row {
+    background: #2f3947;
+    color: #c1c4c8;
+}
+
+
+tbody tr:nth-child(even) {
+    background-color: #f5f5f5;
+}
+
+tbody tr {
+    font-family: OpenSans-Regular;
+    font-size: 15px;
+    color: #363535;
+    line-height: 1.2;
+    font-weight: unset;
+}
+
+
+
+.table-head-name {
+    width: 25%;   
+    text-align: left;
+}
+
+.table-head-email {
+    width: 55%;
+    text-align: left;
+}
+
+.table-head-approve {
+    width: 20%;
+    text-align: center;
+}
+
+.approve-button {
+    background: none;
+    color: darkgreen;
+    border: none;
+    width: 99%;
+}
+.approve-button:hover {
+    color: lightgreen;
+}
+
+.decline-button {
+    background: none;
+    color: darkred;
+	border: none;
+    width: 99%;
+}
+.decline-button:hover {
+    color: lightsalmon;
+}
+
+

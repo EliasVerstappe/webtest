@@ -16,7 +16,7 @@
             $name = $_POST['username'];
             $email = $_POST['email'];
             
-            $sql = ("INSERT INTO users (username, email, password) VALUES ('{$name}', '{$email}', '{$hashed_pwd}')");
+            $sql = ("INSERT INTO pending_users (username, email, password) VALUES ('{$name}', '{$email}', '{$hashed_pwd}')");
             $stmt = $dbc->prepare($sql);
             if(!$stmt){
                echo "Prepare failed: (". $dbc->errno.") ".$dbc->error."<br>";
