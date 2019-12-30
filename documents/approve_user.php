@@ -48,9 +48,6 @@ if (!isset($_SESSION['loggedin'])) {
                 echo "</table>";
                 } else { echo "0 results"; }
                 ?>
-
-                
-
                 
             </table>
 
