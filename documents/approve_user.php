@@ -34,15 +34,15 @@ if (!isset($_SESSION['loggedin'])) {
 
                 <?php
                 include_once ('../config/db-conn.php');
-                $sql = "SELECT username, email FROM pending_users";
+                $sql = "SELECT username, email, id FROM pending_users";
                 $result = $dbc->query($sql);
 
                 if ($result->num_rows > 0) {
                     while($row = $result->fetch_assoc()) {
                     echo "<tr><td>" . $row["username"]. "</td><td>" . $row["email"] . 
                     "</td>" . 
-                        "<td><button class=\"approve-button\"><i class=\"fas fa-user-check\"></i></button></td>" . 
-                        "<td><button class=\"decline-button\"><i class=\"fas fa-user-times\"></i></button></td>" .
+                        "<td><button onclick=\"approveUser(" . $row['id'] ." )\" id=" . $row['id'] ." class=\"approve-button\"><i class=\"fas fa-user-check\"></i></button></td>" .
+                        "<td><button id=" . $row['id'] ." class=\"decline-button\"><i class=\"fas fa-user-times\"></i></button></td>" .
                     "</tr>";
                 }
                 echo "</table>";
@@ -50,7 +50,7 @@ if (!isset($_SESSION['loggedin'])) {
                 ?>
                 
             </table>
-
-        </div>    
+        </div>
+    <script src="../js/approve_user.js"></script>
     </body>
 </html>
