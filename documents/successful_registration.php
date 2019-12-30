@@ -16,15 +16,18 @@ if (!isset($_SESSION['form_ok'])) {
 <body>
 
 <div class="registered">
-
-	<div>
-		<br>
-		<i class="fas fa-check"></i> You have successfully been registered!
-		<br><br>
+	<div class="tick">
+		<p>
+			<i class="fas fa-check"></i>
+		</p>
 	</div>
-	
-	<a href="../index.php">Sign in</a>
-
+	<div class="text">
+		<p>You have successfully been registered!</p>
+		<p>An administrator will process your request soon.</p>		
+	</div>
+	<div class="return-button">
+		<a href="../index.php">Great!</a>
+	</div>
 </div>
 
 </body>
