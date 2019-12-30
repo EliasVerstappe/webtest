@@ -4,7 +4,6 @@ function approveUser(id) {
     // set display none
     var doc = document.getElementById(id);
 
-
     var data = id ;
     httpPOST("http://localhost:8080/documents/responses/test.php", data);
 }
