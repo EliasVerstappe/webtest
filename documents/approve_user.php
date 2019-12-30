@@ -39,7 +39,7 @@ if (!isset($_SESSION['loggedin'])) {
 
                 if ($result->num_rows > 0) {
                     while($row = $result->fetch_assoc()) {
-                    echo "<tr><td>" . $row["username"]. "</td><td>" . $row["email"] . 
+                    echo "<tr id=\"user_row_" . $row['id'] ."\"><td>" . $row["username"]. "</td><td>" . $row["email"] .
                     "</td>" . 
                         "<td><button onclick=\"approveUser(" . $row['id'] .", 'approve' )\" id=" . $row['id'] ." class=\"approve-button\"><i class=\"fas fa-user-check\"></i></button></td>" .
                         "<td><button onclick=\"approveUser(" . $row['id'] .", 'decline' )\" id=" . $row['id'] ." class=\"decline-button\"><i class=\"fas fa-user-times\"></i></button></td>" .

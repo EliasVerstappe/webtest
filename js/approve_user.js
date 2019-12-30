@@ -2,7 +2,7 @@
 
 function approveUser(id, action) {
     // set display none
-    var doc = document.getElementById(id);
+    document.getElementById("user_row_" + id).style.display = "none";
 
     var data = [id, action] ;
     httpPOST("../documents/responses/user-handler.php", data);
