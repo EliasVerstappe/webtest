@@ -1,10 +1,10 @@
 
 
-function approveUser(id) {
+function approveUser(id, action) {
     // set display none
     var doc = document.getElementById(id);
 
-    var data = id ;
+    var data = [id, action] ;
     httpPOST("../documents/responses/user-handler.php", data);
 }
 

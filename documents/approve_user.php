@@ -41,8 +41,8 @@ if (!isset($_SESSION['loggedin'])) {
                     while($row = $result->fetch_assoc()) {
                     echo "<tr><td>" . $row["username"]. "</td><td>" . $row["email"] . 
                     "</td>" . 
-                        "<td><button onclick=\"approveUser(" . $row['id'] ." )\" id=" . $row['id'] ." class=\"approve-button\"><i class=\"fas fa-user-check\"></i></button></td>" .
-                        "<td><button id=" . $row['id'] ." class=\"decline-button\"><i class=\"fas fa-user-times\"></i></button></td>" .
+                        "<td><button onclick=\"approveUser(" . $row['id'] .", 'approve' )\" id=" . $row['id'] ." class=\"approve-button\"><i class=\"fas fa-user-check\"></i></button></td>" .
+                        "<td><button onclick=\"approveUser(" . $row['id'] .", 'decline' )\" id=" . $row['id'] ." class=\"decline-button\"><i class=\"fas fa-user-times\"></i></button></td>" .
                     "</tr>";
                 }
                 echo "</table>";
