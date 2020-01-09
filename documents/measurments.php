@@ -5,6 +5,7 @@ if (!isset($_SESSION['loggedin'])) {
 	exit();
 }
 ?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -15,7 +16,6 @@ if (!isset($_SESSION['loggedin'])) {
     </head>
     <script>
         var Search;
-
         function Searchfunc(SearchOn){
             Search = SearchOn;
             document.getElementById("SearchOn").innerHTML = Search;
@@ -30,7 +30,6 @@ if (!isset($_SESSION['loggedin'])) {
                 document.getElementById("SearchInput").value = "Insert sensor name.";
             }
         };
-
         function requestfunc(){
             if (Search =='Number'){
                 alert(Search);
@@ -44,7 +43,6 @@ if (!isset($_SESSION['loggedin'])) {
                 alert("nothing selected.");
             }
         }
-
         function sendRequest(page){
             var request = new XMLHttpRequest();
             request.open("GET", page);
@@ -56,13 +54,12 @@ if (!isset($_SESSION['loggedin'])) {
             }
             request.send();
         }
-
         $(document).ready(function(){
             $("#MeasureButton").click(function(){
                 sendRequest("/documents/pincontrol/sensor_read.php");
             });
         });
-        </script>
+    </script>
     <body class="loggedin">
         <nav class="navtop">
             <div>
@@ -95,39 +92,21 @@ if (!isset($_SESSION['loggedin'])) {
             </div>
             <div class="result-content" id="resulttable">
                 <?php
-                        // $conn = mysqli_connect('localhost', 'root', '', 'lab_mechatronica');
-                        include_once ('../../config/db-conn.php');
-                        // $sql = "SELECT number, distance, date, sensor from measurments order by number desc";
-                        $sql = "SELECT value from measurments";
-                        // $result = $conn->query($sql);
-                        $result = $dbc->query($sql);
+                        $conn = mysqli_connect('localhost', 'root', '', 'lab_mechatronica');
+                        $sql = "SELECT id, value, date, sensor from measurments order by id desc";
+                        $result = $conn->query($sql);
                         if ($result->num_rows > 0) {
                             echo "<table id=\"resulttable\"><tr><th>Numbers</th><th>Distance</th><th>Date</th><th>Sensor</th></tr>";
                             while($row = $result->fetch_assoc()) {
-                                // echo "<tr><td>" . $row["number"] . "</td><td>" . $row["distance"] .  "</td><td>" . $row["date"] . "</td><td>" . $row["sensor"] . "</td></tr>";
-                                echo "<tr><td>" . $row["value"] . "</td></tr>";
+                                 echo "<tr><td>" . $row["id"] . "</td><td>" . $row["value"] .  "</td><td>" . $row["date"] . "</td><td>" . $row["sensor"] . "</td></tr>";
                             }
                             echo "</table>";
                         } else {
                             echo "0 results";
                         }
-                        // $conn->close();   
+                        $conn->close();   
                 ?>
             </div>
         </div>
     </body>
 </html>
-
-<?php
-    // session_start();
-    // if (!isset($_SESSION['loggedin'])) {
-    //     header('Location: index.php');
-    //     exit();
-    // }
-
-    $distance = $sensor = "";
-
-    if(isset($_POST['name'])){
-        echo $_POST['name'];
-    }
-?>
