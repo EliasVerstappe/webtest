@@ -74,7 +74,6 @@ if (!isset($_SESSION['loggedin'])) {
             <div class="measure-content">
                 <form action="<?php echo $_SERVER['PHP_SELF']; ?>">
                     <button type="submit" id="MeasureButton" >Measure</button>
-                    <!-- <input type="text" name="name" value="hallo" id="MeasureButton" style="visibility:hidden;"></input> -->
                 </form>
             </div>
             <div class="search-content">
