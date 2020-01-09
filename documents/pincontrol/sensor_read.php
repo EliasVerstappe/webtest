@@ -44,3 +44,11 @@ var_dump($distance);
 // print_r("bit2");var_dump($bit2);
 // print_r("bit1");var_dump($bit1);
 // print_r("bit0");var_dump($bit0);
+
+
+include_once ('../../config/db-conn.php');
+
+$sql = "INSERT INTO measurements (value) 
+VALUES (" . $distance . ");";
+$result = $dbc->query($sql);
+var_dump($result);

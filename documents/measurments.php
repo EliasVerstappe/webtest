@@ -5,12 +5,13 @@ if (!isset($_SESSION['loggedin'])) {
 	exit();
 }
 ?>
-
+<!DOCTYPE html>
 <html>
     <head>
         <title>Lab Mechatronica</title>
         <link href="../styles/measurments.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     </head>
     <script>
         var Search;
@@ -44,7 +45,24 @@ if (!isset($_SESSION['loggedin'])) {
             }
         }
 
-    </script>
+        function sendRequest(page){
+            var request = new XMLHttpRequest();
+            request.open("GET", page);
+            request.onreadystatechange=function(){
+                if(request.readyState==4){
+                    if(request.status==200){
+                    } else alert ("HTTP error");
+                }
+            }
+            request.send();
+        }
+
+        $(document).ready(function(){
+            $("#MeasureButton").click(function(){
+                sendRequest("/documents/pincontrol/sensor_read.php");
+            });
+        });
+        </script>
     <body class="loggedin">
         <nav class="navtop">
             <div>
@@ -59,7 +77,7 @@ if (!isset($_SESSION['loggedin'])) {
             <div class="measure-content">
                 <form action="<?php echo $_SERVER['PHP_SELF']; ?>">
                     <button type="submit" id="MeasureButton" >Measure</button>
-                    <input type="text" name="name" value="hallo" id="MeasureButton" style="visibility:hidden;"></input>
+                    <!-- <input type="text" name="name" value="hallo" id="MeasureButton" style="visibility:hidden;"></input> -->
                 </form>
             </div>
             <div class="search-content">
