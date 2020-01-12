@@ -91,9 +91,9 @@ if (!isset($_SESSION['loggedin'])) {
             </div>
             <div class="result-content" id="resulttable">
                 <?php
-                        $conn = mysqli_connect('localhost', 'root', '', 'lab_mechatronica');
-                        $sql = "SELECT id, value, date, sensor from measurments order by id desc";
-                        $result = $conn->query($sql);
+                        include_once ('../config/db-conn.php');
+                        $sql = "SELECT id, value, date, sensor from measurements order by id desc";
+                        $result = $dbc->query($sql);
                         if ($result->num_rows > 0) {
                             echo "<table id=\"resulttable\"><tr><th>Numbers</th><th>Distance</th><th>Date</th><th>Sensor</th></tr>";
                             while($row = $result->fetch_assoc()) {
@@ -103,7 +103,7 @@ if (!isset($_SESSION['loggedin'])) {
                         } else {
                             echo "0 results";
                         }
-                        $conn->close();   
+                        // $conn->close();   
                 ?>
             </div>
         </div>
